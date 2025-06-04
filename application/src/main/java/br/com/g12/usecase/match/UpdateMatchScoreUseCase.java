@@ -1,14 +1,16 @@
 package br.com.g12.usecase.match;
 
 
+import br.com.g12.exception.MatchException;
 import br.com.g12.model.Match;
 import br.com.g12.model.Score;
 import br.com.g12.port.MatchPort;
 import br.com.g12.request.ScoreRequest;
+import br.com.g12.usecase.AbstractUseCase;
 import br.com.g12.validators.MatchValidator;
 import br.com.g12.validators.ScoreValidator;
 
-public class UpdateMatchScoreUseCase {
+public class UpdateMatchScoreUseCase extends AbstractUseCase<ScoreRequest> {
 
     private final MatchPort matchPort;
     private final MatchValidator matchValidator;
@@ -25,14 +27,22 @@ public class UpdateMatchScoreUseCase {
     }
 
     public void execute(String matchId, ScoreRequest score) {
-        Match match = matchPort.find(matchId);
-        Score model = score.toModel();
+        logInput(score);
 
-        matchValidator.validate(match);
-        scoreValidator.validate(model);
+        try {
+            Match match = matchPort.find(matchId);
+            Score model = score.toModel();
 
-        match.setScore(model);
+            matchValidator.validate(match);
+            scoreValidator.validate(model);
 
-        matchPort.save(match);
+            match.setScore(model);
+            matchPort.save(match);
+
+            logSuccess();
+        } catch (MatchException e) {
+            logError(e);
+            throw e;
+        }
     }
 }
