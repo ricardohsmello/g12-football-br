@@ -5,7 +5,6 @@ import br.com.g12.model.Score;
 
 import java.util.Date;
 
-
 public class MatchFake {
 
     public static MatchBuilder builder() {
