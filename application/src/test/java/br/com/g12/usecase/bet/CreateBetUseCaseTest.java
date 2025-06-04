@@ -19,6 +19,7 @@ public class CreateBetUseCaseTest {
     private final BetPort betPort = mock(BetPort.class);
     private final BetValidator betValidator = mock(BetValidator.class);
 
+
     @Test
     public void should_throw_exception_when_bet_is_invalid() {
         BetRequest invalidRequest = new BetRequest("user1", "match1", new Score(-1, 3), 5);

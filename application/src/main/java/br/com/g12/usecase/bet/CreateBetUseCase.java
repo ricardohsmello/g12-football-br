@@ -10,11 +10,10 @@ import br.com.g12.validators.BetValidator;
 
 public class CreateBetUseCase extends AbstractUseCase<BetRequest> {
 
-
     private final BetPort betPort;
     private final BetValidator betValidator;
 
-    CreateBetUseCase(BetPort betPort, BetValidator betValidator) {
+    public CreateBetUseCase(BetPort betPort, BetValidator betValidator) {
         this.betPort = betPort;
         this.betValidator = betValidator;
     }
