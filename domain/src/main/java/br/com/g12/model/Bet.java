@@ -1,7 +1,6 @@
 package br.com.g12.model;
 
 public class Bet {
-
     private String id;
     private String matchId;
     private String userId;

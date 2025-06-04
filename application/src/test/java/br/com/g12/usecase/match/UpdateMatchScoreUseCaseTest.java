@@ -1,11 +1,9 @@
-package br.com.g12.usecase;
+package br.com.g12.usecase.match;
 
 import br.com.g12.model.Match;
 import br.com.g12.model.Score;
 import br.com.g12.port.MatchPort;
-import br.com.g12.request.MatchRequest;
 import br.com.g12.request.ScoreRequest;
-import br.com.g12.response.MatchResponse;
 import br.com.g12.validators.MatchValidator;
 import br.com.g12.validators.ScoreValidator;
 import org.junit.jupiter.api.BeforeEach;

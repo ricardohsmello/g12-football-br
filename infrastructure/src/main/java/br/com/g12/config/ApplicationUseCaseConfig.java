@@ -1,8 +1,8 @@
 package br.com.g12.config;
 
 import br.com.g12.port.MatchPort;
-import br.com.g12.usecase.CreateMatchUseCase;
-import br.com.g12.usecase.UpdateMatchScoreUseCase;
+import br.com.g12.usecase.match.CreateMatchUseCase;
+import br.com.g12.usecase.match.UpdateMatchScoreUseCase;
 import br.com.g12.validators.MatchValidator;
 import br.com.g12.validators.ScoreValidator;
 import org.springframework.context.annotation.Bean;

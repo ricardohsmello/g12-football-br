@@ -1,4 +1,4 @@
-package br.com.g12.usecase;
+package br.com.g12.usecase.match;
 
 
 import br.com.g12.model.Match;
