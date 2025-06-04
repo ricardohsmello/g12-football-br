@@ -10,7 +10,7 @@ public class MatchValidator {
 
     public void validate(Match match) throws MatchException {
 
-        if (match == null) throw new NotFoundException("Match not found!");
+        if (match == null) throw new NotFoundException("Match");
 
         if (match.getHomeTeam() == null || match.getAwayTeam() == null) {
             throw new MatchException("Teams must not be null");

@@ -1,7 +1,7 @@
 package br.com.g12.fake;
 
 import br.com.g12.model.Match;
-import br.com.g12.model.Score;
+
 
 import java.util.Date;
 
@@ -10,18 +10,6 @@ public class MatchFake {
 
     public static MatchBuilder builder() {
         return new MatchBuilder();
-    }
-
-    public static Match withSameTeams() {
-        return builder().sameTeams("Corinthians").build();
-    }
-
-    public static Match withDifferentTeams() {
-        return builder().homeTeam("Barcelona").awayTeam("Real Madrid").build();
-    }
-
-    public static Match withNullTeams() {
-        return builder().homeTeam(null).awayTeam(null).build();
     }
 
     public static class MatchBuilder {
@@ -51,9 +39,15 @@ public class MatchFake {
             return this;
         }
 
-        public MatchBuilder sameTeams(String teamName) {
+        public MatchBuilder withSameTeams(String teamName) {
             this.homeTeam = teamName;
             this.awayTeam = teamName;
+            return this;
+        }
+
+        public MatchBuilder withNullTeams() {
+            this.homeTeam = null;
+            this.awayTeam = null;
             return this;
         }
 

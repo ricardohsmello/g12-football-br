@@ -13,7 +13,7 @@ public class MatchValidatorTest {
     @Test
     public void should_thrown_error_when_match_has_same_teams() {
         var match = MatchFake.builder()
-                .sameTeams("Corinthians")
+                .withSameTeams("Corinthians")
                 .build();
 
         MatchValidator validator = new MatchValidator();
@@ -25,8 +25,7 @@ public class MatchValidatorTest {
     @Test
     public void should_throw_error_when_match_has_null_teams() {
         var match = MatchFake.builder()
-                .homeTeam(null)
-                .awayTeam(null)
+                .withNullTeams()
                 .build();
 
         MatchValidator validator = new MatchValidator();

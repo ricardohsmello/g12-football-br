@@ -8,7 +8,7 @@ public class ScoreValidator {
 
     public void validate(Score score) throws ScoreException {
         if (score == null) {
-            throw new NotFoundException("Score not found!");
+            throw new NotFoundException("Score");
         }
 
         if (score.homeTeam() < 0 || score.awayTeam() < 0) {
