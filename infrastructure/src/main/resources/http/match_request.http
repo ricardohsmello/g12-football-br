@@ -1,0 +1,25 @@
+### POST
+POST http://localhost:8080/match
+Content-Type: application/json
+
+{
+  "round": 1,
+  "homeTeam": "Corinthians",
+  "awayTeam": "Vasco da Gama",
+  "matchDate": "2025-10-10"
+}
+
+### PUT
+
+PUT http://localhost:8080/match/68406243b769cab668b6df98/score
+Content-Type: application/json
+
+{
+  "homeTeam": 3,
+  "awayTeam": 2
+}
+
+### GET
+GET http://localhost:8080/match?page=0&sizePerPage=10&sortField=id&sortDirection=ASC
+
+
