@@ -5,21 +5,21 @@ Content-Type: application/json
 {
   "round": 1,
   "homeTeam": "Corinthians",
-  "awayTeam": "Vasco da Gama",
+  "awayTeam": "Santos",
   "matchDate": "2025-10-10"
 }
 
 ### PUT
 
-PUT http://localhost:8080/match/664c4e7c5a2c254d746c1368/score
+PUT http://localhost:8080/match/6840be8e78c848ae42507bd5/score
 Content-Type: application/json
 
 {
   "homeTeam": 2,
-  "awayTeam": 1
+  "awayTeam": 2
 }
 
-### GET
-GET http://localhost:8080/match?page=0&sizePerPage=10&sortField=id&sortDirection=ASC
+### GET Find by round
+GET http://localhost:8080/match/round/5
 
 
