@@ -22,5 +22,12 @@ public class Bet {
     public String getUserId() { return userId; }
     public Score getPrediction() { return prediction; }
     public int getRound() { return round; }
-    public Integer getPointsEarned() { return pointsEarned; }
+
+    public Integer getPointsEarned() {
+        return pointsEarned;
+    }
+
+    public void setPointsEarned(Integer pointsEarned) {
+        this.pointsEarned = pointsEarned;
+    }
 }

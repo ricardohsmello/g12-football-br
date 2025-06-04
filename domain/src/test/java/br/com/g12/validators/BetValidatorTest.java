@@ -1,7 +1,6 @@
 package br.com.g12.validators;
 
 import br.com.g12.exception.BetException;
-import br.com.g12.exception.MatchException;
 import br.com.g12.exception.NotFoundException;
 import br.com.g12.fake.BetFake;
 import br.com.g12.fake.MatchFake;

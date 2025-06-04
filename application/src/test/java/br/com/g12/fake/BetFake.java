@@ -9,8 +9,8 @@ import java.util.UUID;
 
 public class BetFake {
 
-    public static BetBuilder builder() {
-        return new BetBuilder();
+    public static BetFake.BetBuilder builder() {
+        return new BetFake.BetBuilder();
     }
 
     public static class BetBuilder {
@@ -21,34 +21,35 @@ public class BetFake {
         private int round;
         private Integer pointsEarned;
 
-        public BetBuilder id(String id) {
+        public BetBuilder setId(String id) {
             this.id = id;
             return this;
         }
-        public BetBuilder matchId(String matchId) {
+        public BetBuilder setMatchId(String matchId) {
             this.matchId = matchId;
             return this;
         }
-        public BetBuilder userId(String userId) {
+        public BetBuilder setUserId(String userId) {
             this.userId = userId;
             return this;
         }
-        public BetBuilder prediction(Score prediction) {
+        public BetBuilder setPrediction(Score prediction) {
             this.prediction = prediction;
             return this;
         }
-        public BetBuilder round(int round) {
+        public BetBuilder setRound(int round) {
             this.round = round;
             return this;
         }
-
-        public BetBuilder pointsEarned(Integer pointsEarned) {
+        public BetBuilder setPointsEarned(Integer pointsEarned) {
             this.pointsEarned = pointsEarned;
             return this;
         }
+
         public Bet build() {
             return new Bet(id, matchId, userId, prediction, round, pointsEarned);
         }
+
 
     }
     public static class BetListBuilder {
@@ -69,5 +70,3 @@ public class BetFake {
         }
     }
 }
-
-

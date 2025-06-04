@@ -2,7 +2,6 @@ package br.com.g12.validators;
 
 import br.com.g12.exception.BetException;
 import br.com.g12.exception.NotFoundException;
-
 import br.com.g12.model.Bet;
 import br.com.g12.model.Score;
 
