@@ -1,10 +1,7 @@
 package br.com.g12.validators;
 
-import br.com.g12.exception.MatchException;
 import br.com.g12.exception.NotFoundException;
 import br.com.g12.exception.ScoreException;
-import br.com.g12.fake.MatchFake;
-import br.com.g12.model.Match;
 import br.com.g12.model.Score;
 import org.junit.jupiter.api.Test;
 
