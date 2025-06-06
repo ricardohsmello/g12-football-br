@@ -1,0 +1,45 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Game match</h4>
+                </div>
+                 <div *ngIf="hasAdminRole">
+                    <button mat-button class="orange-button" (click)="add()">New Match</button>
+                </div> 
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Team</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">Team</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let match of matchs">
+                                    <td class="text-left">{{ match.id }}</td>
+                                    <td class="text-left">{{ match.date }}</td>
+                                    <td class="text-left">{{ match.teamA }}</td>
+                                    <td class="text-left">vs</td>
+                                    <td class="text-left">{{ match.teamB }}</td>   
+                                    <td class="text-left">{{ match.status }}</td>
+                                </tr>
+                             </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3e095ea0-00cc-4b8a-8a38-0264ad27fb76" name="Changes" comment="Added scoring service that calculate and perform all logics." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Record" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JavaAutoRunManager">
+    <enabled-run-configurations>
+      <run-configuration type="JUnit" name="ScoringServiceTest.should_return_11_points_when_only_user_with_exact_score" />
+    </enabled-run-configurations>
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2y0qqTKnTXT8bXJfUs0p2yJHs3Y" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "HTTP Request.bet_request | POST.executor": "Run",
+    "HTTP Request.match_request | GET Find by round.executor": "Run",
+    "HTTP Request.match_request | POST.executor": "Run",
+    "HTTP Request.match_request | PUT.executor": "Run",
+    "HTTP Request.score_request | Score a round.executor": "Run",
+    "JUnit.All in g12-domain (1).executor": "Run",
+    "JUnit.All in g12-domain.executor": "Run",
+    "JUnit.BetValidatorTest.executor": "Run",
+    "JUnit.BetValidatorTest.should_throw_error_when_match_idUser_is_null_or_empty.executor": "Run",
+    "JUnit.BetValidatorTest.should_throw_error_when_match_id_is_null.executor": "Run",
+    "JUnit.BetValidatorTest.should_throw_error_when_prediction_is_not_provided.executor": "Run",
+    "JUnit.BetValidatorTest.should_throw_error_when_round_is_invalid.executor": "Run",
+    "JUnit.BetValidatorTest.should_throw_exception_when_bet_is_null.executor": "Run",
+    "JUnit.CreateBetUseCaseTest.executor": "Run",
+    "JUnit.CreateBetUseCaseTest.should_create_bet_successfully.executor": "Run",
+    "JUnit.CreateBetUseCaseTest.should_throw_exception_when_bet_is_invalid.executor": "Run",
+    "JUnit.CreateMatchUseCaseTest.executor": "Run",
+    "JUnit.CreateMatchUseCaseTest.should_create_match_successfully.executor": "Debug",
+    "JUnit.MatchValidatorsTest.executor": "Run",
+    "JUnit.MatchValidatorsTest.should_not_throw_error_when_match_has_different_teams.executor": "Run",
+    "JUnit.MatchValidatorsTest.should_throw_error_when_match_date_is_in_the_future.executor": "Run",
+    "JUnit.MatchValidatorsTest.should_throw_error_when_match_date_is_in_the_past.executor": "Run",
+    "JUnit.MatchValidatorsTest.should_throw_error_when_match_has_null_teams.executor": "Run",
+    "JUnit.MatchValidatorsTest.should_thrown_error_when_match_has_same_teams.executor": "Run",
+    "JUnit.ScoreBetsUseCaseTest.executor": "Run",
+    "JUnit.ScoreBetsUseCaseTest.should_not_score_points_correctly.executor": "Debug",
+    "JUnit.ScoreBetsUseCaseTest.should_score_points_correctly.executor": "Run",
+    "JUnit.ScoreValidatorTest.executor": "Run",
+    "JUnit.ScoringServiceTest (1).executor": "Run",
+    "JUnit.ScoringServiceTest.executor": "Run",
+    "JUnit.ScoringServiceTest.should_make_10_points_when_score_correct_result.executor": "Debug",
+    "JUnit.ScoringServiceTest.should_make_10_points_when_score_exact_Result.executor": "Debug",
+    "JUnit.ScoringServiceTest.should_return_0_points_when_prediction_is_incorrect.executor": "Run",
+    "JUnit.ScoringServiceTest.should_return_10_points_when_score_is_exact.executor": "Run",
+    "JUnit.ScoringServiceTest.should_return_11_points_when_only_user_with_exact_score.executor": "Run",
+    "JUnit.ScoringServiceTest.should_return_12_points_when_score_is_exact.executor": "Run",
+    "JUnit.ScoringServiceTest.should_return_5_points_when_winner_is_correct.executor": "Run",
+    "JUnit.SimpleMongoTest.executor": "Run",
+    "JUnit.SimpleMongoTest.should_insert_and_read_document.executor": "Run",
+    "JUnit.UpdateMatchScoreUseCaseTest.executor": "Run",
+    "JUnit.UpdateMatchScoreUseCaseTest.should_create_match_successfully.executor": "Run",
+    "JUnit.java in g12-application.executor": "Run",
+    "Maven.g12-domain [clean].executor": "Run",
+    "Maven.g12-domain [compile].executor": "Run",
+    "Maven.g12-domain [install].executor": "Run",
+    "Maven.g12-domain [package].executor": "Run",
+    "Maven.g12-parent [clean].executor": "Run",
+    "Maven.g12-parent [package].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.InfrastructureApplication.executor": "Debug",
+    "Spring Boot.SpringBootG12Application.executor": "Debug",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/Ricardo/Documents/projects/github/ricardohsmello/g12-football-br/infrastructure/src/main/java/br/com/g12",
+    "last_opened_file_path": "C:/Users/Ricardo/Documents/projects/github/ricardohsmello/g12-football-bet",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15332031",
+    "project.structure.side.proportion": "0.44349846",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.ignored.files",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="br.com.g12.request" />
+      <recent name="br.com.g12.exception" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ricardo\Documents\projects\github\ricardohsmello\g12-football-br\infrastructure\src\main\resources\http" />
+      <recent name="C:\Users\Ricardo\Documents\projects\github\ricardohsmello\g12-football-br\domain\src\test\java\br\com\g12" />
+      <recent name="C:\Users\Ricardo\Documents\projects\github\ricardohsmello\g12-football-br\infrastructure\src\main\java\br\com\g12" />
+      <recent name="C:\Users\Ricardo\Documents\projects\github\ricardohsmello\g12-football-br\infrastructure\src\main\java\br\com\g12\database" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="br.com.g12.usecase.match" />
+      <recent name="br.com.g12.usecase.bet" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.com.g12.service" />
+      <recent name="br.com.g12.fake" />
+      <recent name="br.com.g12.validators" />
+      <recent name="br.com.g12.exception" />
+      <recent name="br.com.g12.usecase" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.SimpleMongoTest.should_insert_and_read_document">
+    <configuration name="match_request | PUT" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/infrastructure/src/main/resources/http/match_request.http" index="2" requestIdentifier="PUT" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="score_request | Score a round" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/infrastructure/src/main/resources/http/score_request.http" requestIdentifier="Score a round" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="ScoreBetsUseCaseTest.should_score_points_correctly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="g12-application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.g12.usecase.bet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.g12.usecase.bet" />
+      <option name="MAIN_CLASS_NAME" value="br.com.g12.usecase.bet.ScoreBetsUseCaseTest" />
+      <option name="METHOD_NAME" value="should_score_points_correctly" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimpleMongoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="g12-infrastructure" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.g12.database.mongodb.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.g12.database.mongodb" />
+      <option name="MAIN_CLASS_NAME" value="br.com.g12.database.mongodb.SimpleMongoTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimpleMongoTest.should_insert_and_read_document" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="g12-infrastructure" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.g12.database.mongodb.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.g12.database.mongodb" />
+      <option name="MAIN_CLASS_NAME" value="br.com.g12.database.mongodb.SimpleMongoTest" />
+      <option name="METHOD_NAME" value="should_insert_and_read_document" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="g12-football-br" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="g12-football-br" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InfrastructureApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="my-modular-infrastructure" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.ricas.InfrastructureApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringBootG12Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="g12-infrastructure" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.g12.SpringBootG12Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SimpleMongoTest.should_insert_and_read_document" />
+        <item itemvalue="JUnit.SimpleMongoTest" />
+        <item itemvalue="HTTP Request.score_request | Score a round" />
+        <item itemvalue="HTTP Request.match_request | PUT" />
+        <item itemvalue="JUnit.ScoreBetsUseCaseTest.should_score_points_correctly" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3e095ea0-00cc-4b8a-8a38-0264ad27fb76" name="Changes" comment="" />
+      <created>1748982028937</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1748982028937</updated>
+      <workItem from="1748982030017" duration="190000" />
+      <workItem from="1748982227688" duration="178000" />
+      <workItem from="1748982414067" duration="505000" />
+      <workItem from="1748982931544" duration="234000" />
+      <workItem from="1748983176671" duration="110000" />
+      <workItem from="1748990355691" duration="664000" />
+      <workItem from="1748991029132" duration="2443000" />
+      <workItem from="1749042407228" duration="308000" />
+      <workItem from="1749042724517" duration="33125000" />
+      <workItem from="1749230982182" duration="1104000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added pom configuration">
+      <option name="closed" value="true" />
+      <created>1749052912472</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1749052912472</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added http request file">
+      <option name="closed" value="true" />
+      <created>1749052919823</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1749052919823</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Created application configuration">
+      <option name="closed" value="true" />
+      <created>1749052936709</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1749052936709</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Starting use cases configuration">
+      <option name="closed" value="true" />
+      <created>1749052949162</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1749052949162</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Creating matchUseCase and its tests">
+      <option name="closed" value="true" />
+      <created>1749052975607</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1749052975607</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Creating updateMatchScoreUseCase and its tests">
+      <option name="closed" value="true" />
+      <created>1749052989361</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1749052989361</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Creating ScoreValidator and its tests">
+      <option name="closed" value="true" />
+      <created>1749053001783</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1749053001783</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Creating MatchValidator and its tests">
+      <option name="closed" value="true" />
+      <created>1749053009970</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1749053009970</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Creating Score and Match models and theirs requests and responses">
+      <option name="closed" value="true" />
+      <created>1749053053518</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1749053053518</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Creating specialized exceptions">
+      <option name="closed" value="true" />
+      <created>1749053077712</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1749053077712</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Creating fake builder for tests">
+      <option name="closed" value="true" />
+      <created>1749053097408</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1749053097408</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Creating MongoDB matchDocument">
+      <option name="closed" value="true" />
+      <created>1749053113991</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1749053113991</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Creating Match restController">
+      <option name="closed" value="true" />
+      <created>1749053125316</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1749053125316</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Creating Match request http">
+      <option name="closed" value="true" />
+      <created>1749053136497</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1749053136497</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Creating Match port and its implementation.">
+      <option name="closed" value="true" />
+      <created>1749053151736</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1749053151736</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Initializing application">
+      <option name="closed" value="true" />
+      <created>1749053164252</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1749053164252</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Including bet validator">
+      <option name="closed" value="true" />
+      <created>1749057996225</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1749057996225</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Including bet tests">
+      <option name="closed" value="true" />
+      <created>1749060376094</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1749060376094</updated>
+    </task>
+    <task id="LOCAL-00019" summary="added http requests file for endpoints">
+      <option name="closed" value="true" />
+      <created>1749077325443</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1749077325443</updated>
+    </task>
+    <task id="LOCAL-00020" summary="adjusted pom files and its dependencies">
+      <option name="closed" value="true" />
+      <created>1749077402526</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1749077402526</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added test containers">
+      <option name="closed" value="true" />
+      <created>1749077436368</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1749077436368</updated>
+    </task>
+    <task id="LOCAL-00022" summary="added http request for bet">
+      <option name="closed" value="true" />
+      <created>1749077458423</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1749077458423</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Adjusted update score use case">
+      <option name="closed" value="true" />
+      <created>1749077486965</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1749077486965</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Temporary startup data for tests">
+      <option name="closed" value="true" />
+      <created>1749077506363</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1749077506363</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added application starter with configuration">
+      <option name="closed" value="true" />
+      <created>1749077529599</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1749077529599</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Added Bet context such as repo, document, usecases.">
+      <option name="closed" value="true" />
+      <created>1749077563752</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1749077563752</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Added Bet context such as repo, document, usecases.">
+      <option name="closed" value="true" />
+      <created>1749077569927</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1749077569927</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added Match context such as repo, document, usecases.">
+      <option name="closed" value="true" />
+      <created>1749077585222</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1749077585222</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added scoring service that calculate and perform all logics.">
+      <option name="closed" value="true" />
+      <created>1749077612189</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1749077612189</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Starting use cases configuration" />
+    <MESSAGE value="Creating matchUseCase and its tests" />
+    <MESSAGE value="Creating updateMatchScoreUseCase and its tests" />
+    <MESSAGE value="Creating ScoreValidator and its tests" />
+    <MESSAGE value="Creating MatchValidator and its tests" />
+    <MESSAGE value="Creating Score and Match models and theirs requests and responses" />
+    <MESSAGE value="Creating specialized exceptions" />
+    <MESSAGE value="Creating fake builder for tests" />
+    <MESSAGE value="Creating MongoDB matchDocument" />
+    <MESSAGE value="Creating Match restController" />
+    <MESSAGE value="Creating Match request http" />
+    <MESSAGE value="Creating Match port and its implementation." />
+    <MESSAGE value="Initializing application" />
+    <MESSAGE value="Including bet validator" />
+    <MESSAGE value="Including bet tests" />
+    <MESSAGE value="added http requests file for endpoints" />
+    <MESSAGE value="adjusted pom files and its dependencies" />
+    <MESSAGE value="Added test containers" />
+    <MESSAGE value="added http request for bet" />
+    <MESSAGE value="Adjusted update score use case" />
+    <MESSAGE value="Temporary startup data for tests" />
+    <MESSAGE value="Added application starter with configuration" />
+    <MESSAGE value="Added Bet context such as repo, document, usecases." />
+    <MESSAGE value="Added Match context such as repo, document, usecases." />
+    <MESSAGE value="Added scoring service that calculate and perform all logics." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added scoring service that calculate and perform all logics." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/domain/src/test/java/br/com/g12/validators/MatchValidatorTest.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/application/src/test/java/br/com/g12/usecase/match/CreateMatchUseCaseTest.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/domain/src/test/java/br/com/g12/validators/BetValidatorTest.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/domain/src/test/java/br/com/g12/validators/BetValidatorTest.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/application/src/test/java/br/com/g12/usecase/bet/CreateBetUseCaseTest.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/application/src/main/java/br/com/g12/service/ScoringService.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/application/src/test/java/br/com/g12/service/ScoringServiceTest.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/application/src/test/java/br/com/g12/service/ScoringServiceTest.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/application/src/main/java/br/com/g12/service/ScoringService.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/application/src/main/java/br/com/g12/usecase/bet/ScoreBetsUseCase.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/domain/src/main/java/br/com/g12/service/ScoringService.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/application/src/main/java/br/com/g12/usecase/bet/ScoreBetsUseCase.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/application/src/main/java/br/com/g12/usecase/bet/ScoreBetsUseCase.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/infrastructure/src/main/java/br/com/g12/database/mongodb/impl/BetPortImpl.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/infrastructure/src/test/java/br/com/g12/database/mongodb/SimpleMongoTest.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/domain/src/test/java/br/com/g12/validators/BetValidatorTest.java</url>
+          <line>36</line>
+          <properties class="br.com.g12.validators.BetValidatorTest" method="should_throw_error_when_match_idUser_is_null_or_empty">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/domain/src/test/java/br/com/g12/validators/BetValidatorTest.java</url>
+          <line>48</line>
+          <properties class="br.com.g12.validators.BetValidatorTest" method="should_throw_error_when_prediction_is_not_provided">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

@@ -1,0 +1,496 @@
+PUT http://localhost:8080/rounds/1/score
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+###
+
+PUT http://localhost:8080/rounds/1/score
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+###
+
+PUT http://localhost:8080/match/6840be8e78c848ae42507bd5/score
+Content-Type: application/json
+Content-Length: 36
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "homeTeam": 2,
+  "awayTeam": 2
+}
+
+###
+
+PUT http://localhost:8080/6840be8e78c848ae42507bd5/6840be8d78c848ae42507bd4/score
+Content-Type: application/json
+Content-Length: 36
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "homeTeam": 2,
+  "awayTeam": 2
+}
+
+<> 2025-06-04T184819.404.json
+
+###
+
+PUT http://localhost:8080/match/6840be8d78c848ae42507bd4/score
+Content-Type: application/json
+Content-Length: 36
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "homeTeam": 2,
+  "awayTeam": 1
+}
+
+###
+
+PUT http://localhost:8080/rounds/1/score
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+###
+
+PUT http://localhost:8080/rounds/1/score
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+###
+
+PUT http://localhost:8080/rounds/1/score
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+###
+
+PUT http://localhost:8080/rounds/1/score
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+###
+
+PUT http://localhost:8080/match/6840b94231e2f13738c19839/score
+Content-Type: application/json
+Content-Length: 36
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "homeTeam": 2,
+  "awayTeam": 1
+}
+
+###
+
+PUT http://localhost:8080/match/6840b94231e2f13738c1983a/score
+Content-Type: application/json
+Content-Length: 36
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "homeTeam": 2,
+  "awayTeam": 2
+}
+
+###
+
+PUT http://localhost:8080/rounds/1/score
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+###
+
+PUT http://localhost:8080/rounds/1/score
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+###
+
+PUT http://localhost:8080/match/6840b68020d4dc7b220a4f4d/score
+Content-Type: application/json
+Content-Length: 36
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "homeTeam": 2,
+  "awayTeam": 1
+}
+
+###
+
+PUT http://localhost:8080/match/6840b67420d4dc7b220a4f4c/score
+Content-Type: application/json
+Content-Length: 36
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "homeTeam": 0,
+  "awayTeam": 2
+}
+
+###
+
+POST http://localhost:8080/bet
+Content-Type: application/json
+Content-Length: 111
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "matchId": "1",
+  "userId": "3",
+  "prediction": {
+    "homeTeam": 1,
+    "awayTeam": 1
+  },
+  "round": 1
+}
+
+<> 2025-06-04T181219.200.json
+
+###
+
+POST http://localhost:8080/bet
+Content-Type: application/json
+Content-Length: 111
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "matchId": "1",
+  "userId": "2",
+  "prediction": {
+    "homeTeam": 2,
+    "awayTeam": 1
+  },
+  "round": 1
+}
+
+<> 2025-06-04T181211.200.json
+
+###
+
+POST http://localhost:8080/bet
+Content-Type: application/json
+Content-Length: 111
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "matchId": "1",
+  "userId": "1",
+  "prediction": {
+    "homeTeam": 0,
+    "awayTeam": 1
+  },
+  "round": 1
+}
+
+<> 2025-06-04T181157.200.json
+
+###
+
+POST http://localhost:8080/match
+Content-Type: application/json
+Content-Length: 98
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "round": 1,
+  "homeTeam": "Corinthians",
+  "awayTeam": "Santos",
+  "matchDate": "2025-10-10"
+}
+
+<> 2025-06-04T181128.200.json
+
+###
+
+POST http://localhost:8080/match
+Content-Type: application/json
+Content-Length: 96
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "round": 1,
+  "homeTeam": "Sao Paulo",
+  "awayTeam": "Gremio",
+  "matchDate": "2025-10-10"
+}
+
+<> 2025-06-04T181116.200.json
+
+###
+
+GET http://localhost:8080/match/round/5
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2025-06-04T161215.200.json
+
+###
+
+GET http://localhost:8080/match/round/5
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2025-06-04T161021.200.json
+
+###
+
+PUT http://localhost:8080/match/684099f3f9a2f80da74672e0/score
+Content-Type: application/json
+Content-Length: 36
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "homeTeam": 0,
+  "awayTeam": 2
+}
+
+###
+
+PUT http://localhost:8080/match/684099def9a2f80da74672df/score
+Content-Type: application/json
+Content-Length: 36
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "homeTeam": 3,
+  "awayTeam": 2
+}
+
+###
+
+GET http://localhost:8080/match/round/5
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2025-06-04T160941.200.json
+
+###
+
+POST http://localhost:8080/match
+Content-Type: application/json
+Content-Length: 96
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "round": 5,
+  "homeTeam": "Sao Paulo",
+  "awayTeam": "Gremio",
+  "matchDate": "2025-10-10"
+}
+
+<> 2025-06-04T160939.200.json
+
+###
+
+GET http://localhost:8080/match/round/5
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2025-06-04T160928.200.json
+
+###
+
+POST http://localhost:8080/match
+Content-Type: application/json
+Content-Length: 105
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "round": 5,
+  "homeTeam": "Corinthians",
+  "awayTeam": "Vasco da Gama",
+  "matchDate": "2025-10-10"
+}
+
+<> 2025-06-04T160918.200.json
+
+###
+
+GET http://localhost:8080/match/round/5
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2025-06-04T160855.200.json
+
+###
+
+GET http://localhost:8080/match/round/5
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2025-06-04T160656.404.json
+
+###
+
+POST http://localhost:8080/bet
+Content-Type: application/json
+Content-Length: 111
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "matchId": "1",
+  "userId": "1",
+  "prediction": {
+    "homeTeam": 2,
+    "awayTeam": 0
+  },
+  "round": 5
+}
+
+<> 2025-06-04T154745.200.json
+
+###
+
+POST http://localhost:8080/bet
+Content-Type: application/json
+Content-Length: 111
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "matchId": "1",
+  "userId": "1",
+  "prediction": {
+    "homeTeam": 2,
+    "awayTeam": 0
+  },
+  "round": 5
+}
+
+<> 2025-06-04T154630.500.json
+
+###
+
+POST http://localhost:8080/bet
+Content-Type: application/json
+Content-Length: 111
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "matchId": "1",
+  "userId": "1",
+  "prediction": {
+    "homeTeam": 2,
+    "awayTeam": 0
+  },
+  "round": 5
+}
+
+<> 2025-06-04T154524.500.json
+
+###
+
+PUT http://localhost:8080/match/68406243b769cab668b6df98/score
+Content-Type: application/json
+Content-Length: 36
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "homeTeam": 3,
+  "awayTeam": 2
+}
+
+###
+
+PUT http://localhost:8080/match/68406243b769cab668b6df98/score
+Content-Type: application/json
+Content-Length: 36
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "homeTeam": 2,
+  "awayTeam": 1
+}
+
+###
+
+POST http://localhost:8080/match
+Content-Type: application/json
+Content-Length: 105
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "round": 1,
+  "homeTeam": "Corinthians",
+  "awayTeam": "Vasco da Gama",
+  "matchDate": "2025-10-10"
+}
+
+<> 2025-06-04T121203.200.json
+
+###
+

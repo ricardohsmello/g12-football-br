@@ -1,0 +1,40 @@
+<div class="panel-header panel-header-sm">
+
+</div>
+
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">ScoreBoard</h4>
+                </div> 
+
+                <div class="card-body">
+                    <div class="table-responsive">
+
+
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Position</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Points</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let score of scores">
+                                    <td class="text-left">{{ score.position }}</td>
+                                    <td class="text-left">{{ score.name }}</td>
+                                    <td class="text-left">{{ score.points }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

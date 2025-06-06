@@ -1,0 +1,6 @@
+{
+  "timestamp": "2025-06-04T18:46:30.360+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "path": "/bet"
+}
