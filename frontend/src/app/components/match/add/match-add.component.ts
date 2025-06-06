@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
-import { TeamService } from '../../../services/team-service/team-service.service';
-import { Team } from '../../../domain/model/team';
+import { Match } from '../../../domain/model/match/match';
+import { MatchService } from '../../../services/match-service/match.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-match-add',
@@ -9,6 +11,9 @@ import { Team } from '../../../domain/model/team';
   styleUrls: ['./match-add.component.scss']
 })
 export class MatchAddComponent implements OnInit {
+  roundFormGroup = this._formBuilder.group({
+    roundCtrl: ['', Validators.required],
+  });
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
   });
@@ -20,24 +25,43 @@ export class MatchAddComponent implements OnInit {
   });
   isLinear = false;
 
-  teams: Team[];
+  teams: String[];
+  rounds: number[];
 
-
-  constructor(private _formBuilder: FormBuilder,
-    private teamService: TeamService) {    
+  constructor(private _formBuilder: FormBuilder, private matchService: MatchService, private snackBar: MatSnackBar,
+    private dialogRef: MatDialogRef<MatchAddComponent> 
+  ) {    
   }
 
   ngOnInit(): void {
-    this.teamService.findAll().subscribe(data => {
-      console.log(data)
-      this.teams = data;
-    });
-  
+    this.teams = ["Corinthians", "Palmeiras" ];
+    this.rounds = Array.from({ length: 38 }, (_, i) => i + 1);
   }
 
-
   public save() {
-    console.log(this.firstFormGroup.value.firstCtrl);
+
+    const match = new Match();
+    match.round = Number(this.roundFormGroup.value.roundCtrl);
+    match.homeTeam = this.firstFormGroup.value.firstCtrl;
+    match.awayTeam = this.secondFormGroup.value.secondCtrl;
+    match.matchDate = this.thirdFormGroup.value.thirdCtrl;
+
+    
+    this.matchService.save(match).subscribe({
+    next: () => {
+      this.snackBar.open('Match saved successfully!', '', { duration: 3000 });
+      this.dialogRef.close(true);
+    },
+    error: (error) => {
+      if (error.error && error.error.message) {
+        this.snackBar.open(error.error.message, '', { duration: 4000 });
+      } else {
+        this.snackBar.open('Unexpected error occurred.', '', { duration: 4000 });
+      }
+    }
+  })
+
+    // this.matchService.save(match);
   }
 }
 

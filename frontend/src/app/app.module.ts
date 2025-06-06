@@ -11,6 +11,7 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 import {MaterialExampleModule} from '../material.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 export function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -39,7 +40,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     NgbModule,
     KeycloakAngularModule,
     MaterialExampleModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatSnackBarModule
   ],
   declarations: [
     AppComponent,

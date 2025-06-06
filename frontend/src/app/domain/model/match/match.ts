@@ -1,7 +1,6 @@
 export class Match {
-    id: string;
-    date: string;
-    teamA: string;
-    teamB: string;
-    status : String;
+    round: number;    
+    homeTeam: string;
+    awayTeam: string;
+    matchDate: string;
 }

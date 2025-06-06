@@ -33,7 +33,6 @@ docker-compose up -d keycloak
 5. Create user roles and assign them to users as needed.
 
 ## Backend Setup
-
 Navigate to the backend directory:
 
 ````
