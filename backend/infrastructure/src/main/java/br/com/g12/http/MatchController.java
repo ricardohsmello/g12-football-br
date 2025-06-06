@@ -1,5 +1,6 @@
 package br.com.g12.http;
 
+import br.com.g12.model.Score;
 import br.com.g12.request.MatchRequest;
 import br.com.g12.request.ScoreRequest;
 import br.com.g12.response.MatchResponse;
@@ -9,10 +10,16 @@ import br.com.g12.usecase.match.UpdateMatchScoreUseCase;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
+
+import static org.springframework.aot.hint.TypeReference.listOf;
 
 @RestController
 @RequestMapping("/match")
+@CrossOrigin
 public class MatchController {
 
     private final CreateMatchUseCase createMatchUseCase;
