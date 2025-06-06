@@ -24,10 +24,11 @@ docker-compose up -d keycloak
 
 2. Access the Keycloak admin console at http://localhost:8081/
 3. Create a new realm for the application.
+   - name: g12
 4. Create a new client with the following settings:
-- Client ID: g12
-- Root URL: http://localhost:4200/
-- Valid Redirect URIs: http://localhost:4200/*
+   - Client ID: frontend
+   - Root URL: http://localhost:4200/
+   - Valid Redirect URIs: http://localhost:4200/*
 
 5. Create user roles and assign them to users as needed.
 
