@@ -30,7 +30,7 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col">Round</th>                                    
+                                    <th scope="col">Round</th>
                                     <th scope="col">Home Team</th>
                                     <th scope="col">Away Team</th>
                                     <th scope="col">Date</th>
@@ -39,10 +39,11 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let matchResponse of matchResponse">
-                                    <td class="text-left">{{ matchResponse.round }}</td>                               
+                                    <td class="text-left">{{ matchResponse.round }}</td>
                                     <td class="text-left">{{ matchResponse.homeTeam }}</td>
                                     <td class="text-left">{{ matchResponse.awayTeam }}</td>
                                     <td class="text-left">{{ matchResponse.matchDate | date:'short' }}</td>
+
                                     <td class="text-left">
                                         <ng-container *ngIf="matchResponse.score; else showEdit">
                                             {{ matchResponse.score.homeTeam }}
@@ -50,9 +51,14 @@
                                             {{ matchResponse.score.awayTeam }}
                                         </ng-container>
                                         <ng-template #showEdit>
-                                            <button mat-button color="accent"
-                                                (click)="openEditScoreDialog(matchResponse)">Edit</button>
+                                            <div *ngIf="hasAdminRole">
+                                                <button mat-button color="accent"
+                                                    (click)="openEditScoreDialog(matchResponse)">Edit</button>
+                                            </div>
+
                                         </ng-template>
+
+
                                     </td>
 
                                 </tr>

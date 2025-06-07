@@ -83,28 +83,7 @@ export class MatchAddComponent implements OnInit {
     }
   })
 
-    // this.matchService.save(match);
   }
 }
 
-
-/** teams: Team[];
-
-  constructor(
-    private teamService: TeamService,
-    private readonly keycloak: KeycloakService,
-    public dialog: MatDialog) {
-  }
-
-  public hasAdminRole: boolean = false;
-  name?: string;
-
-  async ngOnInit() {
-    this.hasAdminRole = this.keycloak.getUserRoles().includes('admin');
-
-    this.teamService.findAll().subscribe(data => {
-      console.log(data)
-      this.teams = data;
-    });
-  }
- */
+ 
