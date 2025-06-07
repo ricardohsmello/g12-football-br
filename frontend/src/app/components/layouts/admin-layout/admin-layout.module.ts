@@ -19,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatchAddComponent } from '../../match/add/match-add.component';
 import { MaterialExampleModule } from '../../../../material.module';
 import { MatchListComponent } from '../../match/list/match-list/match-list.component';
+import { MatchScoreEditComponent } from '../../match/score-edit/match-score-edit/match-score-edit.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -43,7 +44,8 @@ import { MatchListComponent } from '../../match/list/match-list/match-list.compo
     TeamAddComponent,
     ScoreBoardListComponent,
     MatchAddComponent,
-    MatchListComponent
+    MatchListComponent,
+    MatchScoreEditComponent
   ],
   entryComponents: [TeamAddComponent],
   providers: [MatDialog]

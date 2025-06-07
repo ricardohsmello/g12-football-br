@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-layout.component';
 
-const routes: Routes =[
+const routes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
@@ -13,10 +13,11 @@ const routes: Routes =[
     path: '',
     component: AdminLayoutComponent,
     children: [
-        {
-      path: '',
-      loadChildren: () => import('./components/layouts/admin-layout/admin-layout.module').then(x=>x.AdminLayoutModule)
-  }]},
+      {
+        path: '',
+        loadChildren: () => import('./components/layouts/admin-layout/admin-layout.module').then(x => x.AdminLayoutModule)
+      }]
+  },
   {
     path: '**',
     redirectTo: 'dashboard'
@@ -30,6 +31,6 @@ const routes: Routes =[
     RouterModule.forRoot(routes)
   ],
   exports: [
-  ],
+  ]
 })
 export class AppRoutingModule { }

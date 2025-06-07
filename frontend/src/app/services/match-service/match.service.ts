@@ -22,6 +22,10 @@ import { MatchResponse } from '../../domain/model/match/match-response';
     return this.http.get<Match[]>(this.matchURL);
   }
 
+  public updateScore(matchId: string, score: { homeTeam: number, awayTeam: number }) {
+    return this.http.put<void>(this.matchURL + `/${matchId}/score`, score);
+  }
+
   public save(match: Match) {
     console.log(this.matchURL);
     return this.http.post<Match>(this.matchURL, match);

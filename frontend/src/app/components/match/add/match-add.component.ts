@@ -34,7 +34,29 @@ export class MatchAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.teams = ["Corinthians", "Palmeiras" ];
+    this.teams = [
+      "Atlético Mineiro",
+      "Bahia",
+      "Botafogo",
+      "Ceará",
+      "Corinthians",
+      "Cruzeiro",
+      "Fortaleza",
+      "Flamengo",
+      "Fluminense",     
+      "Grêmio",  
+      "Internacional",      
+      "Juventude",
+      "Mirassol",
+      "Palmeiras",
+      "Redbull Bragantino",
+      "Santos",
+      "São Paulo",
+      "Sport",
+      "Vasco da Gama",
+      "Vitória"
+    ];
+
     this.rounds = Array.from({ length: 38 }, (_, i) => i + 1);
   }
 
