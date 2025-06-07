@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ApplicationServiceConfig {
-
     @Bean
     public ScoringService scoringService() {
         return new ScoringService();
