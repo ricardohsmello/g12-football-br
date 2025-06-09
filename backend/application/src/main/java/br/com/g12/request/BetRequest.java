@@ -5,11 +5,11 @@ import br.com.g12.model.Score;
 
 public record BetRequest(
         String matchId,
-        String userId,
+        String username,
         Score prediction,
         int round
 ) {
     public Bet toModel() {
-        return new Bet(null, matchId, userId, prediction, round, null);
+        return new Bet(null, matchId, username, prediction, round, null);
     }
 }

@@ -16,7 +16,7 @@ public class BetValidator {
             throw new BetException("Match ID is required");
         }
 
-        if (bet.getUserId() == null || bet.getUserId().isBlank()) {
+        if (bet.getUsername() == null || bet.getUsername().isBlank()) {
             throw new BetException("User ID is required");
         }
 

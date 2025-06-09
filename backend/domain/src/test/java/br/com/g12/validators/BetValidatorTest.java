@@ -37,7 +37,7 @@ public class BetValidatorTest {
     public void should_throw_error_when_match_idUser_is_null_or_empty() {
         Bet build = BetFake.builder()
                 .matchId("123")
-                .userId("")
+                .username("")
                 .build();
 
         BetValidator validator = new BetValidator();
@@ -49,7 +49,7 @@ public class BetValidatorTest {
     public void should_throw_error_when_prediction_is_not_provided() {
         Bet build = BetFake.builder()
                 .matchId("123")
-                .userId("1")
+                .username("1")
                 .prediction(null)
                 .build();
 
@@ -62,7 +62,7 @@ public class BetValidatorTest {
     public void should_throw_error_when_round_is_invalid() {
         Bet build = BetFake.builder()
                 .matchId("123")
-                .userId("1")
+                .username("1")
                 .prediction(new Score(2, 2))
                 .round(-1)
                 .build();
