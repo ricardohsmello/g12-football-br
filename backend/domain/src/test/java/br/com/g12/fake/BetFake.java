@@ -16,7 +16,7 @@ public class BetFake {
     public static class BetBuilder {
         private String id;
         private String matchId;
-        private String userId;
+        private String username;
         private Score prediction;
         private int round;
         private Integer pointsEarned;
@@ -29,8 +29,8 @@ public class BetFake {
             this.matchId = matchId;
             return this;
         }
-        public BetBuilder userId(String userId) {
-            this.userId = userId;
+        public BetBuilder username(String username) {
+            this.username = username;
             return this;
         }
         public BetBuilder prediction(Score prediction) {
@@ -47,7 +47,7 @@ public class BetFake {
             return this;
         }
         public Bet build() {
-            return new Bet(id, matchId, userId, prediction, round, pointsEarned);
+            return new Bet(id, matchId, username, prediction, round, pointsEarned);
         }
 
     }
@@ -59,8 +59,8 @@ public class BetFake {
             this.matchId = matchId;
         }
 
-        public BetListBuilder add(String userId, Score prediction) {
-            bets.add(new Bet(UUID.randomUUID().toString(), matchId, userId, prediction, 1, null));
+        public BetListBuilder add(String username, Score prediction) {
+            bets.add(new Bet(UUID.randomUUID().toString(), matchId, username, prediction, 1, null));
             return this;
         }
 

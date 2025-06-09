@@ -3,11 +3,14 @@ POST http://localhost:8080/bet
 Content-Type: application/json
 
 {
-  "matchId": "1",
-  "userId": "3",
+  "matchId": "6847406bc8ad24151108b067",
+  "userId": "Ricardo",
   "prediction": {
     "homeTeam": 1,
     "awayTeam": 1
   },
   "round": 1
 }
+
+### A
+GET localhost:8080/bet/matchId/6847406bc8ad24151108b067

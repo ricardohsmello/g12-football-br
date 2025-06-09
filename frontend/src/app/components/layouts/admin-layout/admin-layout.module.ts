@@ -20,6 +20,7 @@ import { MatchAddComponent } from '../../match/add/match-add.component';
 import { MaterialExampleModule } from '../../../../material.module';
 import { MatchListComponent } from '../../match/list/match-list/match-list.component';
 import { MatchScoreEditComponent } from '../../match/score-edit/match-score-edit/match-score-edit.component';
+import { MatchBetEditComponent } from '../../match/bet-edit/match-bet-edit/match-bet-edit.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -45,7 +46,9 @@ import { MatchScoreEditComponent } from '../../match/score-edit/match-score-edit
     ScoreBoardListComponent,
     MatchAddComponent,
     MatchListComponent,
-    MatchScoreEditComponent
+    MatchScoreEditComponent,
+    MatchBetEditComponent
+    
   ],
   entryComponents: [TeamAddComponent],
   providers: [MatDialog]

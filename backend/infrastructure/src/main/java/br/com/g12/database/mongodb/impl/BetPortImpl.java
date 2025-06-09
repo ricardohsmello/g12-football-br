@@ -4,6 +4,7 @@ import br.com.g12.database.mongodb.BetRepository;
 import br.com.g12.entity.BetDocument;
 import br.com.g12.model.Bet;
 import br.com.g12.port.BetPort;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -32,7 +33,7 @@ public class BetPortImpl implements BetPort {
 
     @Override
     public List<Bet> findByMatchId(String id) {
-        List<BetDocument> byMatchId = betRepository.findByMatchId(id);
+        List<BetDocument> byMatchId = betRepository.findByMatchId(new ObjectId(id));
         return byMatchId.stream().map(BetDocument::toModel).toList();
     }
 }

@@ -7,6 +7,7 @@ import br.com.g12.usecase.bet.CreateBetUseCase;
 import br.com.g12.usecase.bet.ScoreBetsUseCase;
 import br.com.g12.usecase.match.CreateMatchUseCase;
 import br.com.g12.usecase.match.FindMatchesByRoundUseCase;
+import br.com.g12.usecase.match.FindMatchesWithUserBetsUseCase;
 import br.com.g12.usecase.match.UpdateMatchScoreUseCase;
 import br.com.g12.validators.BetValidator;
 import br.com.g12.validators.MatchValidator;
@@ -56,5 +57,11 @@ public class ApplicationUseCaseConfig {
     public ScoreBetsUseCase scoreBetsUseCase(MatchPort matchPort, BetPort betPort, ScoringService scoringService) {
         return new ScoreBetsUseCase(matchPort, betPort, scoringService);
     }
+
+    @Bean
+    public FindMatchesWithUserBetsUseCase findMatchesWithUserBets(MatchPort matchPort, BetPort betPort, ScoringService scoringService) {
+        return new FindMatchesWithUserBetsUseCase(matchPort);
+    }
+
 
 }
