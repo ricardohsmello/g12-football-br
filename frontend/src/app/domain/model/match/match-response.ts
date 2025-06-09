@@ -7,4 +7,5 @@ export class MatchResponse {
    awayTeam: string;
    matchDate: Date;
    score: Score;
+   prediction: Score;
 }

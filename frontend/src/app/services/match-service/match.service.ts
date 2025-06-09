@@ -14,8 +14,8 @@ import { MatchResponse } from '../../domain/model/match/match-response';
     this.matchURL = 'http://localhost:8080/match';
   }
 
-  public findAllByRound(round: number): Observable<MatchResponse[]> {
-    return this.http.get<MatchResponse[]>(this.matchURL + "/round/" + round);
+  public findByUsernameRound(username: string, round: number): Observable<MatchResponse[]> {
+    return this.http.get<MatchResponse[]>(this.matchURL + "/username/" + username + "/round/" + round);
   }
 
   public findAll(): Observable<Match[]> {

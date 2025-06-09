@@ -11,11 +11,11 @@ Content-Type: application/json
 
 ### PUT
 
-PUT http://localhost:8080/match/6844510c90130bdbeffe0055/score
+PUT http://localhost:8080/match/68473dc4692a72b3ee63a1ca/score
 Content-Type: application/json
 
 {
-  "homeTeam": 0,
+  "homeTeam": 4,
   "awayTeam": 2
 }
 

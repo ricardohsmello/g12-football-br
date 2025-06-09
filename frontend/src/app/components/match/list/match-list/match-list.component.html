@@ -34,6 +34,7 @@
                                     <th scope="col">Home Team</th>
                                     <th scope="col">Away Team</th>
                                     <th scope="col">Date</th>
+                                    <th scope="col">Prediction</th>
                                     <th scope="col">Score</th>
                                 </tr>
                             </thead>
@@ -43,6 +44,19 @@
                                     <td class="text-left">{{ matchResponse.homeTeam }}</td>
                                     <td class="text-left">{{ matchResponse.awayTeam }}</td>
                                     <td class="text-left">{{ matchResponse.matchDate | date:'short' }}</td>
+                                    <td class="text-left">
+                                        <ng-container *ngIf="matchResponse.prediction; else showEditPrediction">
+                                            {{ matchResponse.prediction.homeTeam }}
+                                            vs
+                                            {{ matchResponse.prediction.awayTeam }}
+                                        </ng-container>
+                                        <ng-template #showEditPrediction>
+                                            <div>
+                                                <button mat-button color="accent"
+                                                    (click)="openEditBetDialog(matchResponse)">Edit</button>
+                                            </div>
+                                        </ng-template>
+                                    </td>
 
                                     <td class="text-left">
                                         <ng-container *ngIf="matchResponse.score; else showEdit">
