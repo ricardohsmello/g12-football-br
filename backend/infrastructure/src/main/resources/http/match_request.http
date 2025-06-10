@@ -19,7 +19,7 @@ Content-Type: application/json
   "awayTeam": 2
 }
 
-### GET Find by round
-GET http://localhost:8080/match/round/5
+### GET Find by username and round
+GET http://localhost:8080/match/ricas/round/5
 
 
