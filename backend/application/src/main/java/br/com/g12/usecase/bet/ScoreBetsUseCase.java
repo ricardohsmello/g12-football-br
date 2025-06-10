@@ -22,7 +22,6 @@ public class ScoreBetsUseCase {
 
     public void execute(int round) {
         List<Match> matches = matchPort.findByRound(round);
-
         for (Match match : matches) {
             //addValidator
 
@@ -41,5 +40,4 @@ public class ScoreBetsUseCase {
             }
         }
     }
-
-    }
+}
