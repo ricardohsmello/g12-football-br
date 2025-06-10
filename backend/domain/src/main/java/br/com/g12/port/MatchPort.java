@@ -9,6 +9,5 @@ public interface MatchPort {
     Match save(Match match);
     Match find(String id);
     List<Match> findByRound(int round);
-
     List<MatchWithPrediction> findByRoundUser(String username, int round);
 }
