@@ -6,7 +6,6 @@ import br.com.g12.entity.MatchDocument;
 import br.com.g12.model.Match;
 import br.com.g12.model.MatchWithPrediction;
 import br.com.g12.port.MatchPort;
-import org.bson.Document;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
@@ -17,11 +16,6 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-
-import static com.mongodb.client.model.Aggregates.lookup;
-import static javax.management.Query.match;
-import static org.springframework.data.mongodb.core.aggregation.Aggregation.project;
 
 @Repository
 public class MatchPortImpl implements MatchPort {
@@ -62,7 +56,7 @@ public class MatchPortImpl implements MatchPort {
                         .localField("_id")
                         .foreignField("matchId")
                         .pipeline(
-                                Aggregation.match(Criteria.where("userId").is(username))
+                                Aggregation.match(Criteria.where("username").is(username))
                         )
                         .as("userPrediction"),
                 Aggregation.addFields().addField("prediction")

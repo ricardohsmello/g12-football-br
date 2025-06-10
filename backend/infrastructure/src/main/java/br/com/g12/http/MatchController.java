@@ -2,6 +2,7 @@ package br.com.g12.http;
 
 import br.com.g12.request.MatchRequest;
 import br.com.g12.request.ScoreRequest;
+import br.com.g12.request.UserRoundRequest;
 import br.com.g12.response.MatchResponse;
 import br.com.g12.usecase.match.CreateMatchUseCase;
 import br.com.g12.usecase.match.FindMatchesWithUserBetsUseCase;
@@ -41,21 +42,9 @@ public class MatchController {
         return ResponseEntity.noContent().build();
     }
 
-//    @GetMapping("/round/{round}")
-//    public ResponseEntity<List<MatchResponse>> findByRound(@PathVariable int round) {
-//        List<MatchResponse> matches = findMatchesByRoundUseCase.execute(round);
-//        return ResponseEntity.ok(matches);
-//    }
-
     @GetMapping("/username/{username}/round/{round}")
     public ResponseEntity<List<MatchResponse>> findByRound(@PathVariable String username, @PathVariable int round) {
-        List<MatchResponse> matches = findMatchesWithUserBetsUseCase.execute(username, round);
+         List<MatchResponse> matches = findMatchesWithUserBetsUseCase.execute(new UserRoundRequest(username, round));
         return ResponseEntity.ok(matches);
     }
-
-//    @GetMapping("/round/{round}/username/{username}")
-//    public  ResponseEntity<List<MatchResponse>> findMatchesWithUserBets(@PathVariable int round,@PathVariable String username) {
-//        List<MatchResponse> matches = findMatchesWithUserBets.execute(round, username);
-//        return ResponseEntity.ok(matches);
-//    }
 }

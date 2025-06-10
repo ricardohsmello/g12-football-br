@@ -1,6 +1,5 @@
 
 import { Component, OnInit } from '@angular/core';
-
 import { KeycloakService } from 'keycloak-angular';
 import { MatDialog } from '@angular/material/dialog';
 import { Match } from '../../../../domain/model/match/match';
@@ -11,8 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MatchScoreEditComponent } from '../../score-edit/match-score-edit/match-score-edit.component';
 import { MatchBetEditComponent } from '../../bet-edit/match-bet-edit/match-bet-edit.component';
 import { BetService } from '../../../../services/bet-service/bet.service';
-// import { MatSnackBar } from '@angular/material/snack-bar';
-// import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-match-list',
@@ -25,7 +23,7 @@ export class MatchListComponent implements OnInit {
     roundCtrl: this._formBuilder.control(1, Validators.required),
   });
 
-  matchs: Match[];
+
   matchResponse: MatchResponse[];
   rounds: number[];
   currentRound: number = 1;
@@ -38,15 +36,12 @@ export class MatchListComponent implements OnInit {
     private readonly keycloak: KeycloakService,
     public dialog: MatDialog,
     private _formBuilder: FormBuilder,
-    private betService: BetService
-    // private snackBar: MatSnackBar,
-    //   private dialogRef: MatDialogRef<MatchAddComponent>
+    private betService: BetService,
+    private snackBar: MatSnackBar
   ) {
   }
 
-
   openEditBetDialog(match: MatchResponse): void {
-
     const dialogRef = this.dialog.open(MatchBetEditComponent, {
       width: '300px',
       data: { match },
@@ -54,7 +49,7 @@ export class MatchListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
     
-       if (result) {
+     if (result) {
       this.keycloak.loadUserProfile().then(profile => {
         const payload = {
           matchId: match.id,
@@ -66,10 +61,19 @@ export class MatchListComponent implements OnInit {
           round: match.round
         };
 
-        console.log(payload);
-
-        this.betService.save(payload).subscribe(() => {
-          this.findByUsernameRound(this.username, this.currentRound);
+        this.betService.save(payload).subscribe({
+          next: () => {
+            this.snackBar.open('Match score added successfully!', '', { duration: 3000 });
+            dialogRef.close(true);
+            this.findByUsernameRound(this.username, this.currentRound);
+          },
+          error: (error) => {
+            if (error.error && error.error.message) {
+              this.snackBar.open(error.error.message, '', { duration: 4000 });
+            } else {
+              this.snackBar.open('Unexpected error occurred.', '', { duration: 4000 });
+            }
+          }
         });
       });
     }
@@ -85,25 +89,21 @@ export class MatchListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        //     this.matchService.updateScore(match.id, result).subscribe({
-        //   next: () => {
-        //     this.snackBar.open('Match score added successfully!', '', { duration: 3000 });
-        //     this.dialogRef.close(true);
-        //     this.findByRound(this.currentRound);
-        //   },
-        //   error: (error) => {
-        //     if (error.error && error.error.message) {
-        //       this.snackBar.open(error.error.message, '', { duration: 4000 });
-        //     } else {
-        //       this.snackBar.open('Unexpected error occurred.', '', { duration: 4000 });
-        //     }
-        //   }
-        // })
-
-
-        this.matchService.updateScore(match.id, result).subscribe(() => {
+          
+        this.matchService.updateScore(match.id, result).subscribe({
+          next: () => {
+            this.snackBar.open('Match score added successfully!', '', { duration: 3000 });
+            dialogRef.close(true);
           this.findByUsernameRound(this.username, this.currentRound);
-        });
+          },
+          error: (error) => {
+            if (error.error && error.error.message) {
+              this.snackBar.open(error.error.message, '', { duration: 4000 });
+            } else {
+              this.snackBar.open('Unexpected error occurred.', '', { duration: 4000 });
+            }
+          }
+        })
       }
     });
   }
@@ -124,8 +124,10 @@ export class MatchListComponent implements OnInit {
               this.findByUsernameRound(this.username, roundNumber);
             }
           });
-    });
-    
+    });    
+  }
+
+  public settleRound() {
 
   }
 
@@ -148,8 +150,7 @@ export class MatchListComponent implements OnInit {
 
   private findByUsernameRound(username, round: number) {
     this.matchService.findByUsernameRound(username, round).subscribe(data => {
-      console.log(data)
-      this.matchResponse = data;
+       this.matchResponse = data;
     });
   }
 }
