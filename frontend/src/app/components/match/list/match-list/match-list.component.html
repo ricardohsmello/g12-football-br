@@ -21,6 +21,7 @@
 
                         <div *ngIf="hasAdminRole">
                             <button mat-raised-button color="primary" (click)="add()">New Match</button>
+                            <button mat-raised-button color="primary" (click)="settleRound()">Settle Round</button>
                         </div>
                     </div>
                 </div>
@@ -49,6 +50,10 @@
                                             {{ matchResponse.prediction.homeTeam }}
                                             vs
                                             {{ matchResponse.prediction.awayTeam }}
+                                            <div>
+                                                <button mat-button color="accent"
+                                                    (click)="openEditBetDialog(matchResponse)">Edit</button>
+                                            </div>
                                         </ng-container>
                                         <ng-template #showEditPrediction>
                                             <div>
@@ -69,12 +74,8 @@
                                                 <button mat-button color="accent"
                                                     (click)="openEditScoreDialog(matchResponse)">Edit</button>
                                             </div>
-
                                         </ng-template>
-
-
                                     </td>
-
                                 </tr>
                             </tbody>
                         </table>

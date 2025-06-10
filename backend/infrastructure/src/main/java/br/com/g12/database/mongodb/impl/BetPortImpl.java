@@ -21,8 +21,14 @@ public class BetPortImpl implements BetPort {
 
     @Override
     public Bet save(Bet bet) {
-        BetDocument betDocument = BetDocument.fromModel(bet);
-        return betRepository.save(betDocument).toModel();
+        BetDocument existing = betRepository.findByMatchIdAndUsername(new ObjectId(bet.getMatchId()), bet.getUsername());
+
+        if (existing != null) {
+            existing.setPrediction(bet.getPrediction());
+            return betRepository.save(existing).toModel();
+        }
+
+        return betRepository.save(BetDocument.fromModel(bet)).toModel();
     }
 
     @Override
@@ -36,4 +42,5 @@ public class BetPortImpl implements BetPort {
         List<BetDocument> byMatchId = betRepository.findByMatchId(new ObjectId(id));
         return byMatchId.stream().map(BetDocument::toModel).toList();
     }
+
 }

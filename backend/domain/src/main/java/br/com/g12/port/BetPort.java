@@ -8,7 +8,5 @@ public interface BetPort {
 
     Bet save(Bet bet);
     Bet findById(String id);
-
     List<Bet> findByMatchId(String id);
-//    List<Bet> findByUserIdAndMatchIdIn(username, matchId);
 }
