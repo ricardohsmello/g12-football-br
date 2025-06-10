@@ -11,17 +11,17 @@ public class BetDocument {
     @Id
     private String id;
     private ObjectId matchId;
-    private String userId;
+    private String username;
     private Score prediction;
     private int round;
     private Integer pointsEarned;
 
     public BetDocument() {}
 
-    public BetDocument(String id, String matchId, String userId, Score prediction, int round, Integer pointsEarned) {
+    public BetDocument(String id, String matchId, String username, Score prediction, int round, Integer pointsEarned) {
         this.id = id;
         this.matchId = new ObjectId(matchId);
-        this.userId = userId;
+        this.username = username;
         this.prediction = prediction;
         this.round = round;
         this.pointsEarned = pointsEarned;
@@ -38,8 +38,11 @@ public class BetDocument {
         );
     }
 
+    public void setPrediction(Score prediction) {
+        this.prediction = prediction;
+    }
 
     public Bet toModel() {
-        return new Bet(id, matchId.toString(), userId, prediction, round, pointsEarned);
+        return new Bet(id, matchId.toString(), username, prediction, round, pointsEarned);
     }
 }
