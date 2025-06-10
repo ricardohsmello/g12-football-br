@@ -8,11 +8,11 @@ public abstract class AbstractUseCase<T> {
     protected final Logger log = LoggerFactory.getLogger(this.getClass());
 
     protected void logInput(T input) {
-        log.debug("Executing use case with input: {}", input);
+        log.info("Executing use case with input: {}", input);
     }
 
     protected void logSuccess() {
-        log.debug("Use case executed successfully");
+        log.info("Use case executed successfully");
     }
 
     protected void logError(Exception e) {
