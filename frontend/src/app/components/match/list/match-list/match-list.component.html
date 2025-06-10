@@ -68,6 +68,10 @@
                                             {{ matchResponse.score.homeTeam }}
                                             vs
                                             {{ matchResponse.score.awayTeam }}
+                                            <div *ngIf="hasAdminRole">
+                                                <button mat-button color="accent"
+                                                    (click)="openEditScoreDialog(matchResponse)">Edit</button>
+                                            </div>
                                         </ng-container>
                                         <ng-template #showEdit>
                                             <div *ngIf="hasAdminRole">
