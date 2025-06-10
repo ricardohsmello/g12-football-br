@@ -13,23 +13,12 @@ export class UserProfileComponent implements OnInit {
 
   constructor(private readonly keycloak: KeycloakService) {}
 
-
-  public username = "a";
-  public email = "b";
-  public name = "c";
-  public lastname = "d";
- 
   async ngOnInit() {
-
     this.isLogged = await this.keycloak.isLoggedIn();
 
     if (this.isLogged) {
       this.profile = await this.keycloak.loadUserProfile(); 
-
-      this.name = this.profile.firstName;
-    }
-
-   }
+     }  
  
-
+  }
 }
