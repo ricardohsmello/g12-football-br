@@ -42,6 +42,10 @@ public class BetDocument {
         this.prediction = prediction;
     }
 
+    public void setPointsEarned(Integer pointsEarned) {
+        this.pointsEarned = pointsEarned;
+    }
+
     public Bet toModel() {
         return new Bet(id, matchId.toString(), username, prediction, round, pointsEarned);
     }

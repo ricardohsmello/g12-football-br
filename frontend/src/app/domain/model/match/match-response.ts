@@ -8,4 +8,5 @@ export class MatchResponse {
    matchDate: Date;
    score: Score;
    prediction: Score;
+   pointsEarned: number;
 }

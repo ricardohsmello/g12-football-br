@@ -13,14 +13,15 @@ public record MatchResponse(
         String awayTeam,
         Date matchDate,
         Score score,
-        Score prediction
+        Score prediction,
+        Integer pointsEarned
 ) {
     public static MatchResponse fromModel(Match match) {
-        return new MatchResponse(match.getId(), match.getRound(), match.getHomeTeam(), match.getAwayTeam(), match.getMatchDate(), match.getScore(), null);
+        return new MatchResponse(match.getId(), match.getRound(), match.getHomeTeam(), match.getAwayTeam(), match.getMatchDate(), match.getScore(), null, null);
     }
 
     public static MatchResponse fromModel(MatchWithPrediction match) {
-        return new MatchResponse(match.getId(), match.getRound(), match.getHomeTeam(), match.getAwayTeam(), match.getMatchDate(), match.getScore(), match.getPrediction());
+        return new MatchResponse(match.getId(), match.getRound(), match.getHomeTeam(), match.getAwayTeam(), match.getMatchDate(), match.getScore(), match.getPrediction(), match.getPointsEarned());
     }
 }
 

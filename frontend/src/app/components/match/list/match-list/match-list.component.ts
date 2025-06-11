@@ -2,7 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 import { MatDialog } from '@angular/material/dialog';
-import { Match } from '../../../../domain/model/match/match';
 import { MatchService } from '../../../../services/match-service/match.service';
 import { MatchAddComponent } from '../../add/match-add.component';
 import { MatchResponse } from '../../../../domain/model/match/match-response';
@@ -11,6 +10,7 @@ import { MatchScoreEditComponent } from '../../score-edit/match-score-edit/match
 import { MatchBetEditComponent } from '../../bet-edit/match-bet-edit/match-bet-edit.component';
 import { BetService } from '../../../../services/bet-service/bet.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ConfirmDialogComponent } from '../../../dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-match-list',
@@ -127,9 +127,28 @@ export class MatchListComponent implements OnInit {
     });    
   }
 
-  public settleRound() {
+settleRound(): void {
+  const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+    width: '300px',
+    data: {
+      message: `Are you sure you want to settle round ${this.currentRound}?`
+    }
+  });
 
-  }
+  dialogRef.afterClosed().subscribe(confirmed => {
+    if (confirmed) {
+      this.matchService.scoreRound(this.currentRound).subscribe({
+        next: () => {
+           this.snackBar.open('Round settled successfully', '', { duration: 3000 });
+           this.findByUsernameRound(this.username, this.currentRound);
+        },
+        error: (err) => {
+          this.snackBar.open('Unexpected error occurred.', err, { duration: 4000 });
+        }
+      });
+    }
+  });
+}
 
   public add() {
     const dialogRef = this.dialog.open(MatchAddComponent, {

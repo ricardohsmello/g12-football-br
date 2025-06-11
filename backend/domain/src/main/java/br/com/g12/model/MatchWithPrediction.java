@@ -10,7 +10,7 @@ public class MatchWithPrediction {
     private Date matchDate;
     private Score score;
     private Score prediction;
-
+    private int pointsEarned;
 
     public String getId() {
         return id;
@@ -39,5 +39,13 @@ public class MatchWithPrediction {
 
     public String getHomeTeam() {
         return homeTeam;
+    }
+
+    public int getPointsEarned() {
+        return pointsEarned;
+    }
+
+    public void setPointsEarned(int pointsEarned) {
+        this.pointsEarned = pointsEarned;
     }
 }

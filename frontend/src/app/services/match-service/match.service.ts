@@ -30,4 +30,8 @@ import { MatchResponse } from '../../domain/model/match/match-response';
     console.log(this.matchURL);
     return this.http.post<Match>(this.matchURL, match);
   }
+
+  public scoreRound(round: number) {
+    return this.http.put<void>(`http://localhost:8080/rounds/${round}/score`, {});
+  }
 }

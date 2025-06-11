@@ -25,6 +25,8 @@ public class BetPortImpl implements BetPort {
 
         if (existing != null) {
             existing.setPrediction(bet.getPrediction());
+            existing.setPointsEarned(bet.getPointsEarned());
+
             return betRepository.save(existing).toModel();
         }
 

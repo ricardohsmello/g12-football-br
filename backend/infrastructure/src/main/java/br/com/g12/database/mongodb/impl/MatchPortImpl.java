@@ -62,8 +62,11 @@ public class MatchPortImpl implements MatchPort {
                 Aggregation.addFields().addField("prediction")
                         .withValue(
                                 ArrayOperators.ArrayElemAt.arrayOf("userPrediction.prediction").elementAt(0)
-                        ).build(),
-                Aggregation.project("round", "homeTeam", "awayTeam", "matchDate", "score", "prediction")
+                        )
+                .addField("pointsEarned")
+                .withValue(ArrayOperators.ArrayElemAt.arrayOf("userPrediction.pointsEarned").elementAt(0))
+                .build(),
+                Aggregation.project("round", "homeTeam", "awayTeam", "matchDate", "score", "prediction", "pointsEarned")
         );
 
         AggregationResults<MatchWithPrediction> results = mongoTemplate.aggregate(aggregation, "match", MatchWithPrediction.class);
