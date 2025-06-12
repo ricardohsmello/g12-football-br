@@ -4,6 +4,7 @@ import br.com.g12.model.Bet;
 import br.com.g12.model.Score;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,6 +21,7 @@ public class BetFake {
         private Score prediction;
         private int round;
         private Integer pointsEarned;
+        private Date date;
 
         public BetBuilder setId(String id) {
             this.id = id;
@@ -41,13 +43,13 @@ public class BetFake {
             this.round = round;
             return this;
         }
-        public BetBuilder setPointsEarned(Integer pointsEarned) {
-            this.pointsEarned = pointsEarned;
+        public BetBuilder date(Date date) {
+            this.date = date;
             return this;
         }
 
         public Bet build() {
-            return new Bet(id, matchId, userId, prediction, round, pointsEarned);
+            return new Bet(id, matchId, userId, prediction, round, pointsEarned, date);
         }
 
 
@@ -61,7 +63,7 @@ public class BetFake {
         }
 
         public BetListBuilder add(String userId, Score prediction) {
-            bets.add(new Bet(UUID.randomUUID().toString(), matchId, userId, prediction, 1, null));
+            bets.add(new Bet(UUID.randomUUID().toString(), matchId, userId, prediction, 1, null, new Date()));
             return this;
         }
 

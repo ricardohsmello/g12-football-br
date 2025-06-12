@@ -6,6 +6,8 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Document(collection = "bet")
 public class BetDocument {
     @Id
@@ -15,16 +17,18 @@ public class BetDocument {
     private Score prediction;
     private int round;
     private Integer pointsEarned;
+    private Date date;
 
     public BetDocument() {}
 
-    public BetDocument(String id, String matchId, String username, Score prediction, int round, Integer pointsEarned) {
+    public BetDocument(String id, String matchId, String username, Score prediction, int round, Integer pointsEarned, Date date) {
         this.id = id;
         this.matchId = new ObjectId(matchId);
         this.username = username;
         this.prediction = prediction;
         this.round = round;
         this.pointsEarned = pointsEarned;
+        this.date = date;
     }
 
     public static BetDocument fromModel(Bet bet) {
@@ -34,7 +38,8 @@ public class BetDocument {
                 bet.getUsername(),
                 bet.getPrediction(),
                 bet.getRound(),
-                bet.getPointsEarned() != null ? bet.getPointsEarned() : null
+                bet.getPointsEarned() != null ? bet.getPointsEarned() : null,
+                bet.getDate() != null ? bet.getDate() : null
         );
     }
 
@@ -47,6 +52,6 @@ public class BetDocument {
     }
 
     public Bet toModel() {
-        return new Bet(id, matchId.toString(), username, prediction, round, pointsEarned);
+        return new Bet(id, matchId.toString(), username, prediction, round, pointsEarned, date);
     }
 }

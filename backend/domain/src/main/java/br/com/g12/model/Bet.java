@@ -2,6 +2,8 @@ package br.com.g12.model;
 
 import java.util.Date;
 
+import static br.com.g12.utils.DateUtils.truncateToSeconds;
+
 public class Bet {
     private String id;
     private String matchId;
@@ -18,7 +20,7 @@ public class Bet {
         this.prediction = prediction;
         this.round = round;
         this.pointsEarned = pointsEarned;
-        this.date = date;
+        this.date = truncateToSeconds(date);;
     }
 
     public String getId() { return id; }
@@ -40,6 +42,6 @@ public class Bet {
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        this.date = truncateToSeconds(date);
     }
 }
