@@ -5,9 +5,6 @@ import { MatchService } from '../../../services/match-service/match.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef } from '@angular/material/dialog';
 
-
-
-
 @Component({
   selector: 'app-match-add',
   templateUrl: './match-add.component.html',
