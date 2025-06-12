@@ -9,9 +9,7 @@ import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { ScoreBoardListComponent } from '../../score-board-list/score-board-list.component';
-import { TeamListComponent } from '../../team/list/team-list.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
-import { TeamAddComponent } from '../../team/add/team-add.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
@@ -42,8 +40,6 @@ import { ConfirmDialogComponent } from '../../dialog/confirm-dialog.component'
     DashboardComponent,
     UserProfileComponent,
     NotificationsComponent,
-    TeamListComponent,
-    TeamAddComponent,
     ScoreBoardListComponent,
     MatchAddComponent,
     MatchListComponent,
@@ -52,7 +48,7 @@ import { ConfirmDialogComponent } from '../../dialog/confirm-dialog.component'
     ConfirmDialogComponent
     
   ],
-  entryComponents: [TeamAddComponent],
+  entryComponents: [],
   providers: [MatDialog]
 
 })
