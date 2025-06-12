@@ -63,14 +63,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "g12-football-bet:build"
+            "buildTarget": "g12-football-bet:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "g12-football-bet:build:production"
+              "buildTarget": "g12-football-bet:build:production"
             },
             "development": {
-              "browserTarget": "g12-football-bet:build:development"
+              "buildTarget": "g12-football-bet:build:development"
             },
             "defaultConfiguration": "development"
           }
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "g12-football-bet:build"
+            "buildTarget": "g12-football-bet:build"
           }
         },
         "test": {
