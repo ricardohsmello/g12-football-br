@@ -63,16 +63,28 @@ export class MatchAddComponent implements OnInit {
 
   public save() {
     const match = new Match();
-    match.status = "Open";
+    match.status = "OPEN";
     match.round = Number(this.roundFormGroup.value.roundCtrl);
     match.homeTeam = this.firstFormGroup.value.firstCtrl;
     match.awayTeam = this.secondFormGroup.value.secondCtrl;
-    
+
     const dateString: string = this.thirdFormGroup.value.thirdCtrl;
     const timeString: string = this.thirdFormGroup.value.fourthCtrl;
 
-    match.matchDate = this.buildMatchDate(dateString, timeString);
+    // match.matchDate = new Date(dateString);
+    const [hours, minutes] = timeString.split(':').map(Number);
+
     
+    const date = new Date(dateString);
+
+    date.setHours(hours);
+    date.setMinutes(minutes);
+    date.setSeconds(0);
+    date.setMilliseconds(0);
+
+    // Atribui ao match
+    match.matchDate = date;
+
     this.matchService.save(match).subscribe({
       next: () => {
         this.snackBar.open('Match saved successfully!', '', { duration: 3000 });
@@ -90,18 +102,18 @@ export class MatchAddComponent implements OnInit {
   }
 
   private buildMatchDate(dateString: string, timeString: string): Date {
-  const date = new Date(dateString);
-  const [hours, minutes] = timeString.split(':').map(Number);
+    const date = new Date(dateString);
+    const [hours, minutes] = timeString.split(':').map(Number);
 
-  return new Date(Date.UTC(
-    date.getFullYear(),
-    date.getMonth(),
-    date.getDate(),
-    hours,
-    minutes,
-    0
-  ));
-}
+    return new Date(Date.UTC(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+      hours,
+      minutes,
+      0
+    ));
+  }
 }
 
 

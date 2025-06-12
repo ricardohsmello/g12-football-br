@@ -32,6 +32,7 @@ export class MatchListComponent implements OnInit {
   name?: string;
   username: string;
   sortOrder: 'asc' | 'desc' = 'desc';
+  dateSortOrder: 'asc' | 'desc' = 'asc';
 
   constructor(
     private matchService: MatchService,
@@ -43,6 +44,19 @@ export class MatchListComponent implements OnInit {
   ) {
   }
 
+
+  toggleDateSortOrder() {
+    this.dateSortOrder = this.dateSortOrder === 'asc' ? 'desc' : 'asc';
+    this.sortMatchesByDate();
+  }
+
+  sortMatchesByDate() {
+    this.matchResponse.sort((a, b) => {
+      const dateA = new Date(a.matchDate).getTime();
+      const dateB = new Date(b.matchDate).getTime();
+      return this.dateSortOrder === 'asc' ? dateA - dateB : dateB - dateA;
+    });
+  }
 
   toggleSortOrder(): void {
     this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';

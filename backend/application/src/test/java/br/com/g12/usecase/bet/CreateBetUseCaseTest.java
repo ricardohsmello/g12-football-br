@@ -9,6 +9,8 @@ import br.com.g12.response.BetResponse;
 import br.com.g12.validators.BetValidator;
 import org.junit.jupiter.api.Test;
 
+import java.util.Date;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
@@ -39,7 +41,7 @@ public class CreateBetUseCaseTest {
     @Test
     public void should_create_bet_successfully() {
         var betRequest = new BetRequest("1", "1", new Score(2, 3), 5);
-        Bet bet = new Bet("001", "1", "1", new Score(2, 3), 5, null);
+        Bet bet = new Bet("001", "1", "1", new Score(2, 3), 5, null, new Date());
         when(betPort.save(any(Bet.class))).thenReturn(bet);
 
         CreateBetUseCase createBetUseCase = new CreateBetUseCase(betPort, betValidator);

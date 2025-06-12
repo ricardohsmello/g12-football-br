@@ -45,7 +45,15 @@
                                     <th scope="col">Round</th>
                                     <th scope="col">Home Team</th>
                                     <th scope="col">Away Team</th>
-                                    <th scope="col">Date</th>
+                                    <!-- <th scope="col">Date</th> -->
+                                    <th scope="col">
+                                        Date
+                                        <button mat-icon-button style="vertical-align: middle;"
+                                            (click)="toggleDateSortOrder()" matTooltip="Order by date">
+                                            <mat-icon>{{ dateSortOrder === 'asc' ? 'arrow_upward' : 'arrow_downward'
+                                                }}</mat-icon>
+                                        </button>
+                                    </th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Prediction</th>
                                     <th scope="col">Score</th>
@@ -66,35 +74,59 @@
                                     <td class="text-left">{{ matchResponse.round }}</td>
                                     <td class="text-left">{{ matchResponse.homeTeam }}</td>
                                     <td class="text-left">{{ matchResponse.awayTeam }}</td>
-                                    <td class="text-left">{{ matchResponse.matchDate | date:'short' }}</td>
+                                    <td class="text-left">{{ matchResponse.matchDate | date:'dd/MM/yyyy
+                                        HH:mm':'America/Sao_Paulo' }}</td>
                                     <td class="text-left">{{ matchResponse.status }}</td>
 
-                                    <td class="text-left">
+                                    <!-- <td class="text-left">
                                         <ng-container *ngIf="matchResponse.prediction; else showEditPrediction">
                                             {{ matchResponse.prediction.homeTeam }}
                                             vs
                                             {{ matchResponse.prediction.awayTeam }}
-                                            <div>
+                                            <div *ngIf="matchResponse.status === 'OPEN'">
                                                 <button mat-button color="accent"
                                                     (click)="openEditBetDialog(matchResponse)">Edit</button>
                                             </div>
                                         </ng-container>
                                         <ng-template #showEditPrediction>
-                                            <div>
+                                            <div *ngIf="matchResponse.status === 'OPEN'">
                                                 <button mat-button color="accent"
                                                     (click)="openEditBetDialog(matchResponse)">Add</button>
                                             </div>
+                                        </ng-template>
+                                    </td>  -->
+
+                                    <td class="text-left">
+                                        <ng-container *ngIf="matchResponse.prediction; else showEditPrediction">
+                                            <div style="display: flex; align-items: center; gap: 8px;">
+                                                <span>{{ matchResponse.prediction.homeTeam }} x {{
+                                                    matchResponse.prediction.awayTeam }}</span>
+
+                                                <button *ngIf="matchResponse.status === 'OPEN'" mat-button
+                                                    color="accent" (click)="openEditBetDialog(matchResponse)">
+                                                    Edit
+                                                </button>
+                                            </div>
+                                        </ng-container>
+
+                                        <ng-template #showEditPrediction>
+                                            <button *ngIf="matchResponse.status === 'OPEN'" mat-button color="accent"
+                                                (click)="openEditBetDialog(matchResponse)">
+                                                Add
+                                            </button>
                                         </ng-template>
                                     </td>
 
                                     <td class="text-left">
                                         <ng-container *ngIf="matchResponse.score; else showEdit">
-                                            {{ matchResponse.score.homeTeam }}
+                                             <div style="display: flex; align-items: center; gap: 8px;">
+                                            <span>{{ matchResponse.score.homeTeam }}
                                             vs
-                                            {{ matchResponse.score.awayTeam }}
+                                            {{ matchResponse.score.awayTeam }}</span>
                                             <div *ngIf="hasAdminRole">
                                                 <button mat-button color="accent"
                                                     (click)="openEditScoreDialog(matchResponse)">Edit</button>
+                                            </div>
                                             </div>
                                         </ng-container>
                                         <ng-template #showEdit>
@@ -104,7 +136,7 @@
                                             </div>
                                         </ng-template>
                                     </td>
-                                    <td>{{matchResponse.pointsEarned}}</td>
+                                   <td class="text-center">{{matchResponse.pointsEarned}}</td>
                                 </tr>
                             </tbody>
                         </table>
