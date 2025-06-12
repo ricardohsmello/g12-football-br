@@ -42,22 +42,31 @@
       </div>
     </form>
   </mat-step>
- <mat-step [stepControl]="thirdFormGroup" label="Match date">
+  <mat-step [stepControl]="thirdFormGroup" label="Match date">
     <form [formGroup]="thirdFormGroup">
       <mat-form-field>
-        <mat-label>Choose a date</mat-label>
+        <mat-label>Choose Match date</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="thirdCtrl" required>
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
+
+
+      <!-- <mat-form-field>
+        <mat-label>Match time</mat-label>
+        <input matInput [formControl]="formControl" [matTimepicker]="picker">
+        <mat-timepicker-toggle matIconSuffix [for]="picker" />
+        <mat-timepicker #picker />
+      </mat-form-field> -->
+
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
- 
+
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
     <p><b>{{thirdFormGroup.value.thirdCtrl}}</b></p>
