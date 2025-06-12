@@ -1,5 +1,7 @@
 package br.com.g12.model;
 
+import java.util.Date;
+
 public class Bet {
     private String id;
     private String matchId;
@@ -7,14 +9,16 @@ public class Bet {
     private Score prediction;
     private int round;
     private Integer pointsEarned;
+    private Date date;
 
-    public Bet(String id, String matchId, String username, Score prediction, int round, Integer pointsEarned) {
+    public Bet(String id, String matchId, String username, Score prediction, int round, Integer pointsEarned, Date date) {
         this.id = id;
         this.matchId = matchId;
         this.username = username;
         this.prediction = prediction;
         this.round = round;
         this.pointsEarned = pointsEarned;
+        this.date = date;
     }
 
     public String getId() { return id; }
@@ -23,11 +27,19 @@ public class Bet {
     public Score getPrediction() { return prediction; }
     public int getRound() { return round; }
 
+    public Date getDate() {
+        return date;
+    }
+
     public Integer getPointsEarned() {
         return pointsEarned;
     }
 
     public void setPointsEarned(Integer pointsEarned) {
         this.pointsEarned = pointsEarned;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

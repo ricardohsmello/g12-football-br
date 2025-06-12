@@ -1,5 +1,6 @@
 package br.com.g12.model;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Match {
@@ -16,9 +17,13 @@ public class Match {
         this.round = round;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
-        this.matchDate = matchDate;
+        this.matchDate = truncateToSeconds(matchDate);
         this.score = score;
         this.status = status;
+    }
+
+    public void setMatchDate(Date matchDate) {
+        this.matchDate = truncateToSeconds(matchDate);
     }
 
     public String getId() {return id; }
@@ -47,6 +52,15 @@ public class Match {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public static Date truncateToSeconds(Date date) {
+        if (date == null) return null;
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.MILLISECOND, 0);
+        return calendar.getTime();
     }
 }
 

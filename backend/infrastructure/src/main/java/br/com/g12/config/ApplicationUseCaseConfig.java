@@ -28,8 +28,8 @@ public class ApplicationUseCaseConfig {
     }
 
     @Bean
-    public BetValidator betValidator() {
-        return new BetValidator();
+     public BetValidator betValidator(MatchPort matchPort) {
+        return new BetValidator(matchPort);
     }
 
     @Bean

@@ -25,4 +25,3 @@ public class BetController {
         return ResponseEntity.ok(betResponse);
     }
 }
-
