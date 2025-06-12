@@ -16,6 +16,7 @@ import { ConfirmDialogComponent } from '../../../dialog/confirm-dialog.component
   selector: 'app-match-list',
   templateUrl: './match-list.component.html',
   styleUrls: ['./match-list.component.scss']
+
 })
 export class MatchListComponent implements OnInit {
 
@@ -30,6 +31,7 @@ export class MatchListComponent implements OnInit {
   public hasAdminRole: boolean = false;
   name?: string;
   username: string;
+  sortOrder: 'asc' | 'desc' = 'desc';
 
   constructor(
     private matchService: MatchService,
@@ -41,6 +43,23 @@ export class MatchListComponent implements OnInit {
   ) {
   }
 
+
+  toggleSortOrder(): void {
+    this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+    this.sortMatches();
+  }
+
+  sortMatches(): void {
+    this.matchResponse.sort((a, b) => {
+      const aPoints = a.pointsEarned ?? 0;
+      const bPoints = b.pointsEarned ?? 0;
+
+      return this.sortOrder === 'asc'
+        ? aPoints - bPoints
+        : bPoints - aPoints;
+    });
+  }
+
   openEditBetDialog(match: MatchResponse): void {
     const dialogRef = this.dialog.open(MatchBetEditComponent, {
       width: '300px',
@@ -48,39 +67,39 @@ export class MatchListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-    
-     if (result) {
-      this.keycloak.loadUserProfile().then(profile => {
-        const payload = {
-          matchId: match.id,
-          username: profile.username ?? profile.email ?? 'unknown',
-          prediction: {
-            homeTeam: result.homeTeam,
-            awayTeam: result.awayTeam
-          },
-          round: match.round
-        };
 
-        this.betService.save(payload).subscribe({
-          next: () => {
-            this.snackBar.open('Match score added successfully!', '', { duration: 3000 });
-            dialogRef.close(true);
-            this.findByUsernameRound(this.username, this.currentRound);
-          },
-          error: (error) => {
-            if (error.error && error.error.message) {
-              this.snackBar.open(error.error.message, '', { duration: 4000 });
-            } else {
-              this.snackBar.open('Unexpected error occurred.', '', { duration: 4000 });
+      if (result) {
+        this.keycloak.loadUserProfile().then(profile => {
+          const payload = {
+            matchId: match.id,
+            username: profile.username ?? profile.email ?? 'unknown',
+            prediction: {
+              homeTeam: result.homeTeam,
+              awayTeam: result.awayTeam
+            },
+            round: match.round
+          };
+
+          this.betService.save(payload).subscribe({
+            next: () => {
+              this.snackBar.open('Match score added successfully!', '', { duration: 3000 });
+              dialogRef.close(true);
+              this.findByUsernameRound(this.username, this.currentRound);
+            },
+            error: (error) => {
+              if (error.error && error.error.message) {
+                this.snackBar.open(error.error.message, '', { duration: 4000 });
+              } else {
+                this.snackBar.open('Unexpected error occurred.', '', { duration: 4000 });
+              }
             }
-          }
+          });
         });
-      });
-    }
-  });
-}      
- 
-      
+      }
+    });
+  }
+
+
   openEditScoreDialog(match: MatchResponse): void {
     const dialogRef = this.dialog.open(MatchScoreEditComponent, {
       width: '300px',
@@ -89,12 +108,12 @@ export class MatchListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-          
+
         this.matchService.updateScore(match.id, result).subscribe({
           next: () => {
             this.snackBar.open('Match score added successfully!', '', { duration: 3000 });
             dialogRef.close(true);
-          this.findByUsernameRound(this.username, this.currentRound);
+            this.findByUsernameRound(this.username, this.currentRound);
           },
           error: (error) => {
             if (error.error && error.error.message) {
@@ -110,45 +129,45 @@ export class MatchListComponent implements OnInit {
 
   async ngOnInit() {
     this.keycloak.loadUserProfile().then(profile => {
-        this.username = profile.username ?? profile.email ?? 'unknown'
+      this.username = profile.username ?? profile.email ?? 'unknown'
 
-        this.rounds = Array.from({ length: 38 }, (_, i) => i + 1);
+      this.rounds = Array.from({ length: 38 }, (_, i) => i + 1);
 
-        this.hasAdminRole = this.keycloak.getUserRoles().includes('admin');
-        this.findByUsernameRound(this.username, this.currentRound);
+      this.hasAdminRole = this.keycloak.getUserRoles().includes('admin');
+      this.findByUsernameRound(this.username, this.currentRound);
 
-        this.roundFormGroup.get('roundCtrl')?.valueChanges.subscribe((round) => {
-            const roundNumber = Number(round);
-            this.currentRound = Number(round);
-            if (!isNaN(roundNumber)) {
-              this.findByUsernameRound(this.username, roundNumber);
-            }
-          });
-    });    
-  }
-
-settleRound(): void {
-  const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-    width: '300px',
-    data: {
-      message: `Are you sure you want to settle round ${this.currentRound}?`
-    }
-  });
-
-  dialogRef.afterClosed().subscribe(confirmed => {
-    if (confirmed) {
-      this.matchService.scoreRound(this.currentRound).subscribe({
-        next: () => {
-           this.snackBar.open('Round settled successfully', '', { duration: 3000 });
-           this.findByUsernameRound(this.username, this.currentRound);
-        },
-        error: (err) => {
-          this.snackBar.open('Unexpected error occurred.', err, { duration: 4000 });
+      this.roundFormGroup.get('roundCtrl')?.valueChanges.subscribe((round) => {
+        const roundNumber = Number(round);
+        this.currentRound = Number(round);
+        if (!isNaN(roundNumber)) {
+          this.findByUsernameRound(this.username, roundNumber);
         }
       });
-    }
-  });
-}
+    });
+  }
+
+  settleRound(): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '300px',
+      data: {
+        message: `Are you sure you want to settle round ${this.currentRound}?`
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(confirmed => {
+      if (confirmed) {
+        this.matchService.scoreRound(this.currentRound).subscribe({
+          next: () => {
+            this.snackBar.open('Round settled successfully', '', { duration: 3000 });
+            this.findByUsernameRound(this.username, this.currentRound);
+          },
+          error: (err) => {
+            this.snackBar.open('Unexpected error occurred.', err, { duration: 4000 });
+          }
+        });
+      }
+    });
+  }
 
   public add() {
     const dialogRef = this.dialog.open(MatchAddComponent, {
@@ -169,9 +188,10 @@ settleRound(): void {
 
   private findByUsernameRound(username, round: number) {
     this.matchService.findByUsernameRound(username, round).subscribe(data => {
-       this.matchResponse = data;
+      this.matchResponse = data;
+      this.sortMatches();
     });
   }
 }
 
- 
+

@@ -13,6 +13,7 @@ import { AdminLayoutComponent } from './components/layouts/admin-layout/admin-la
 import {MaterialExampleModule} from '../material.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
 
 export function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -43,7 +44,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     MaterialExampleModule,
     ToastrModule.forRoot(),
     MatSnackBarModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatIconModule
   ],
   declarations: [
     AppComponent,

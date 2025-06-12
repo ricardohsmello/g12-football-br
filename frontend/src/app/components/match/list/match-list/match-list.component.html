@@ -1,3 +1,6 @@
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
 <div class="panel-header panel-header-sm"></div>
 
 <div class="main-content">
@@ -5,11 +8,19 @@
         <div class="col-md-12">
             <div class="card">
 
+                <!-- <mat-form-field appearance="outline" style="width: 200px; margin-left: 16px;">
+                    <mat-label>Order by</mat-label>
+                    <mat-select [(value)]="sortOrder" (selectionChange)="sortMatches()">
+                        <mat-option value="desc">Points Desc</mat-option>
+                        <mat-option value="asc">Points Asc</mat-option>
+                    </mat-select>
+                </mat-form-field> -->
+
 
                 <div class="card-header">
                     <h4 class="card-title mb-2">Game match</h4>
 
-              
+
                     <form [formGroup]="roundFormGroup">
                         <mat-form-field appearance="outline" style="width: 200px;">
                             <mat-label>Round</mat-label>
@@ -19,7 +30,7 @@
                         </mat-form-field>
                     </form>
 
-             
+
                     <div *ngIf="hasAdminRole" style="display: flex; gap: 12px; margin-top: 8px;">
                         <button mat-raised-button color="primary" (click)="add()">New Match</button>
                         <button mat-raised-button color="accent" (click)="settleRound()">Settle Round</button>
@@ -37,7 +48,16 @@
                                     <th scope="col">Date</th>
                                     <th scope="col">Prediction</th>
                                     <th scope="col">Score</th>
-                                    <th scope="col">Points Earned</th>
+                                    <!-- <th scope="col">Points Earned</th> -->
+                                    <th scope="col">     
+                                        Points Earned                         
+                                        <button mat-icon-button style="vertical-align: middle;"
+                                            (click)="toggleSortOrder()" matTooltip="Order by points">
+                                            
+                                            <mat-icon>{{ sortOrder === 'asc' ? 'arrow_upward' : 'arrow_downward'
+                                                }}</mat-icon>
+                                        </button>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -59,7 +79,7 @@
                                         <ng-template #showEditPrediction>
                                             <div>
                                                 <button mat-button color="accent"
-                                                    (click)="openEditBetDialog(matchResponse)">Edit</button>
+                                                    (click)="openEditBetDialog(matchResponse)">Add</button>
                                             </div>
                                         </ng-template>
                                     </td>
@@ -77,7 +97,7 @@
                                         <ng-template #showEdit>
                                             <div *ngIf="hasAdminRole">
                                                 <button mat-button color="accent"
-                                                    (click)="openEditScoreDialog(matchResponse)">Edit</button>
+                                                    (click)="openEditScoreDialog(matchResponse)">Add</button>
                                             </div>
                                         </ng-template>
                                     </td>
