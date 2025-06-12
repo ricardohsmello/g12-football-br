@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Match } from '../../../domain/model/match/match';
 import { MatchService } from '../../../services/match-service/match.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -19,9 +19,10 @@ export class MatchAddComponent implements OnInit {
   });
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
-  }); 
+  });
   thirdFormGroup = this._formBuilder.group({
     thirdCtrl: ['', Validators.required],
+    fourthCtrl: ['', Validators.required],
   });
   isLinear = false;
 
@@ -29,8 +30,8 @@ export class MatchAddComponent implements OnInit {
   rounds: number[];
 
   constructor(private _formBuilder: FormBuilder, private matchService: MatchService, private snackBar: MatSnackBar,
-    private dialogRef: MatDialogRef<MatchAddComponent> 
-  ) {    
+    private dialogRef: MatDialogRef<MatchAddComponent>
+  ) {
   }
 
   ngOnInit(): void {
@@ -43,9 +44,9 @@ export class MatchAddComponent implements OnInit {
       "Cruzeiro",
       "Fortaleza",
       "Flamengo",
-      "Fluminense",     
-      "Grêmio",  
-      "Internacional",      
+      "Fluminense",
+      "Grêmio",
+      "Internacional",
       "Juventude",
       "Mirassol",
       "Palmeiras",
@@ -66,24 +67,42 @@ export class MatchAddComponent implements OnInit {
     match.round = Number(this.roundFormGroup.value.roundCtrl);
     match.homeTeam = this.firstFormGroup.value.firstCtrl;
     match.awayTeam = this.secondFormGroup.value.secondCtrl;
-    match.matchDate = this.thirdFormGroup.value.thirdCtrl;
 
+
+    const dateString: string = this.thirdFormGroup.value.thirdCtrl;
+    const timeString: string = this.thirdFormGroup.value.fourthCtrl;
+
+    match.matchDate = this.buildMatchDate(dateString, timeString);
     
     this.matchService.save(match).subscribe({
-    next: () => {
-      this.snackBar.open('Match saved successfully!', '', { duration: 3000 });
-      this.dialogRef.close(true);
-    },
-    error: (error) => {
-      if (error.error && error.error.message) {
-        this.snackBar.open(error.error.message, '', { duration: 4000 });
-      } else {
-        this.snackBar.open('Unexpected error occurred.', '', { duration: 4000 });
+      next: () => {
+        this.snackBar.open('Match saved successfully!', '', { duration: 3000 });
+        this.dialogRef.close(true);
+      },
+      error: (error) => {
+        if (error.error && error.error.message) {
+          this.snackBar.open(error.error.message, '', { duration: 4000 });
+        } else {
+          this.snackBar.open('Unexpected error occurred.', '', { duration: 4000 });
+        }
       }
-    }
-  })
+    })
 
   }
+
+  private buildMatchDate(dateString: string, timeString: string): Date {
+  const date = new Date(dateString);
+  const [hours, minutes] = timeString.split(':').map(Number);
+
+  return new Date(Date.UTC(
+    date.getFullYear(),
+    date.getMonth(),
+    date.getDate(),
+    hours,
+    minutes,
+    0
+  ));
+}
 }
 
- 
+

@@ -52,13 +52,10 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
-
-      <!-- <mat-form-field>
-        <mat-label>Match time</mat-label>
-        <input matInput [formControl]="formControl" [matTimepicker]="picker">
-        <mat-timepicker-toggle matIconSuffix [for]="picker" />
-        <mat-timepicker #picker />
-      </mat-form-field> -->
+      <mat-form-field appearance="outline">
+        <mat-label>Match Time (HH:mm)</mat-label>
+        <input matInput placeholder="16:00" formControlName="fourthCtrl" required>
+      </mat-form-field>
 
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -69,7 +66,7 @@
 
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
-    <p><b>{{thirdFormGroup.value.thirdCtrl}}</b></p>
+    <p><b>{{thirdFormGroup.value.thirdCtrl}} | {{thirdFormGroup.value.fourthCtrl}}</b></p>
     <p>{{firstFormGroup.value.firstCtrl}} vs {{secondFormGroup.value.secondCtrl}}</p>
     <div>
       <button mat-button matStepperPrevious>Back</button>
