@@ -18,6 +18,11 @@ public class MatchDocument {
 
     public MatchDocument() {}
 
+
+    public Date getMatchDate() {
+        return matchDate;
+    }
+
     public MatchDocument(String id, int round, String homeTeam, String awayTeam, Date matchDate, Score score, String status) {
         this.id = id;
         this.round = round;
