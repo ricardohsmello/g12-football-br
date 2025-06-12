@@ -1,7 +1,8 @@
 package br.com.g12.model;
 
-import java.util.Calendar;
 import java.util.Date;
+
+import static br.com.g12.utils.DateUtils.truncateToSeconds;
 
 public class Match {
     String id;
@@ -54,13 +55,5 @@ public class Match {
         this.status = status;
     }
 
-    public static Date truncateToSeconds(Date date) {
-        if (date == null) return null;
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.set(Calendar.MILLISECOND, 0);
-        return calendar.getTime();
-    }
 }
 
