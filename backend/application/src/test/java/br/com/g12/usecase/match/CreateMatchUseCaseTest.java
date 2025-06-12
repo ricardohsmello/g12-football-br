@@ -21,8 +21,8 @@ public class CreateMatchUseCaseTest {
 
     @Test
     public void should_create_match_successfully() {
-        MatchRequest request = new MatchRequest(1, "Real Madrid", "Corinthians", new Date());
-        Match match = new Match(null, 1, "Real Madrid", "Corinthians", request.matchDate(), null);
+        MatchRequest request = new MatchRequest(1, "Real Madrid", "Corinthians", new Date(), "Open");
+        Match match = new Match(null, 1, "Real Madrid", "Corinthians", request.matchDate(), null, "Open");
 
         when(matchPort.save(any(Match.class))).thenReturn(match);
         MatchResponse response = useCase.execute(request);

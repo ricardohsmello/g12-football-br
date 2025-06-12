@@ -19,6 +19,7 @@ public class MatchFake {
         private String awayTeam = "Real Madrid";
         private Date matchDate = new Date();
         private Score score;
+        private String status;
 
         public MatchBuilder id(String id) {
             this.id = id;
@@ -57,13 +58,18 @@ public class MatchFake {
             return this;
         }
 
+        public MatchBuilder status(String status) {
+            this.status = status;
+            return this;
+        }
+
         public MatchBuilder score(Score score) {
             this.score = score;
             return this;
         }
 
         public Match build() {
-            return new Match(id, round, homeTeam, awayTeam, matchDate, score);
+            return new Match(id, round, homeTeam, awayTeam, matchDate, score, status);
         }
     }
 }

@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static org.springframework.data.mongodb.core.aggregation.Aggregation.*;
+
 @Repository
 public class MatchPortImpl implements MatchPort {
 
@@ -24,7 +26,7 @@ public class MatchPortImpl implements MatchPort {
 
     private final MongoTemplate mongoTemplate;
 
-     MatchPortImpl(MatchRepository matchRepository, MongoTemplate mongoTemplate) {
+    MatchPortImpl(MatchRepository matchRepository, MongoTemplate mongoTemplate) {
         this.matchRepository = matchRepository;
         this.mongoTemplate = mongoTemplate;
     }
@@ -47,32 +49,71 @@ public class MatchPortImpl implements MatchPort {
         return byRound.stream().map(MatchDocument::toModel).toList();
     }
 
+//    @Override
+//    public List<MatchWithPrediction> findByRoundUser(String username, int round) {
+//        Aggregation aggregation = Aggregation.newAggregation(
+//                match(Criteria.where("round").is(round)),
+//                lookup()
+//                        .from("bet")
+//                        .localField("_id")
+//                        .foreignField("matchId")
+//                        .pipeline(
+//                                match(Criteria.where("username").is(username))
+//                        )
+//                        .as("userPrediction"),
+//                addFields()
+//                        .addField("prediction")
+//                            .withValue(ArrayOperators.ArrayElemAt.arrayOf("userPrediction.prediction").elementAt(0))
+//                        .addField("pointsEarned")
+//                            .withValue(ArrayOperators.ArrayElemAt.arrayOf("userPrediction.pointsEarned").elementAt(0))
+//
+//                        .build(),
+//                Aggregation.project("round", "homeTeam", "awayTeam", "matchDate", "status", "score", "prediction", "pointsEarned")
+//        );
+//
+//        AggregationResults<MatchWithPrediction> results = mongoTemplate.aggregate(aggregation, "match", MatchWithPrediction.class);
+//        return new ArrayList<>(results.getMappedResults());
+//
+//    }
+
     @Override
     public List<MatchWithPrediction> findByRoundUser(String username, int round) {
         Aggregation aggregation = Aggregation.newAggregation(
-                Aggregation.match(Criteria.where("round").is(round)),
-                Aggregation.lookup()
+                match(Criteria.where("round").is(round)),
+                lookup()
                         .from("bet")
                         .localField("_id")
                         .foreignField("matchId")
                         .pipeline(
-                                Aggregation.match(Criteria.where("username").is(username))
+                                match(Criteria.where("username").is(username))
                         )
                         .as("userPrediction"),
-                Aggregation.addFields().addField("prediction")
-                        .withValue(
-                                ArrayOperators.ArrayElemAt.arrayOf("userPrediction.prediction").elementAt(0)
-                        )
-                .addField("pointsEarned")
-                .withValue(ArrayOperators.ArrayElemAt.arrayOf("userPrediction.pointsEarned").elementAt(0))
-                .build(),
-                Aggregation.project("round", "homeTeam", "awayTeam", "matchDate", "score", "prediction", "pointsEarned")
+
+                addFields()
+                        .addField("prediction")
+                        .withValue(ArrayOperators.ArrayElemAt.arrayOf("userPrediction.prediction").elementAt(0))
+                        .addField("pointsEarned")
+                        .withValue(ArrayOperators.ArrayElemAt.arrayOf("userPrediction.pointsEarned").elementAt(0))
+                        .build(),
+
+                Aggregation.project(
+                        "round",
+                        "homeTeam",
+                        "awayTeam",
+                        "matchDate",
+                        "status",
+                        "score",
+                        "prediction",
+                        "pointsEarned"
+                )
         );
 
-        AggregationResults<MatchWithPrediction> results = mongoTemplate.aggregate(aggregation, "match", MatchWithPrediction.class);
-        return new ArrayList<>(results.getMappedResults());
+        AggregationResults<MatchWithPrediction> results =
+                mongoTemplate.aggregate(aggregation, "match", MatchWithPrediction.class);
 
+        return new ArrayList<>(results.getMappedResults());
     }
+
 
 
 }

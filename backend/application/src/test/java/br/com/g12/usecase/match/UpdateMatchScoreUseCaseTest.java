@@ -35,7 +35,7 @@ public class UpdateMatchScoreUseCaseTest {
         ScoreRequest request = new ScoreRequest(2, 1);
         Score score = new Score(2, 1);
 
-        Match match = new Match(matchId, 1, "Real Madrid", "Corinthians", new Date(), null);
+        Match match = new Match(matchId, 1, "Real Madrid", "Corinthians", new Date(), null, "Open");
 
         when(matchPort.find(any(String.class))).thenReturn(match);
         useCase.execute(matchId, request);

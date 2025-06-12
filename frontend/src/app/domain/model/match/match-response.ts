@@ -9,4 +9,5 @@ export class MatchResponse {
    score: Score;
    prediction: Score;
    pointsEarned: number;
+   status: string;
 }

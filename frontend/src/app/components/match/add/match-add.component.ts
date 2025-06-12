@@ -62,13 +62,12 @@ export class MatchAddComponent implements OnInit {
   }
 
   public save() {
-
     const match = new Match();
+    match.status = "Open";
     match.round = Number(this.roundFormGroup.value.roundCtrl);
     match.homeTeam = this.firstFormGroup.value.firstCtrl;
     match.awayTeam = this.secondFormGroup.value.secondCtrl;
-
-
+    
     const dateString: string = this.thirdFormGroup.value.thirdCtrl;
     const timeString: string = this.thirdFormGroup.value.fourthCtrl;
 

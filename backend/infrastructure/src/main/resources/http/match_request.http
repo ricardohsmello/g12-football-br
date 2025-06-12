@@ -6,7 +6,8 @@ Content-Type: application/json
   "round": 1,
   "homeTeam": "Corinthians",
   "awayTeam": "Santos",
-  "matchDate": "2025-10-10"
+  "matchDate": "2025-10-10",
+  "status": "Open"
 }
 
 ### PUT

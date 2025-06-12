@@ -1,5 +1,5 @@
 <head>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <div class="panel-header panel-header-sm"></div>
 
@@ -46,14 +46,15 @@
                                     <th scope="col">Home Team</th>
                                     <th scope="col">Away Team</th>
                                     <th scope="col">Date</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col">Prediction</th>
                                     <th scope="col">Score</th>
                                     <!-- <th scope="col">Points Earned</th> -->
-                                    <th scope="col">     
-                                        Points Earned                         
+                                    <th scope="col">
+                                        Points Earned
                                         <button mat-icon-button style="vertical-align: middle;"
                                             (click)="toggleSortOrder()" matTooltip="Order by points">
-                                            
+
                                             <mat-icon>{{ sortOrder === 'asc' ? 'arrow_upward' : 'arrow_downward'
                                                 }}</mat-icon>
                                         </button>
@@ -66,6 +67,8 @@
                                     <td class="text-left">{{ matchResponse.homeTeam }}</td>
                                     <td class="text-left">{{ matchResponse.awayTeam }}</td>
                                     <td class="text-left">{{ matchResponse.matchDate | date:'short' }}</td>
+                                    <td class="text-left">{{ matchResponse.status }}</td>
+
                                     <td class="text-left">
                                         <ng-container *ngIf="matchResponse.prediction; else showEditPrediction">
                                             {{ matchResponse.prediction.homeTeam }}

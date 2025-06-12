@@ -14,16 +14,18 @@ public class MatchDocument {
     private String awayTeam;
     private Date matchDate;
     private Score score;
+    private String status;
 
     public MatchDocument() {}
 
-    public MatchDocument(String id, int round, String homeTeam, String awayTeam, Date matchDate, Score score) {
+    public MatchDocument(String id, int round, String homeTeam, String awayTeam, Date matchDate, Score score, String status) {
         this.id = id;
         this.round = round;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.matchDate = matchDate;
         this.score = score;
+        this.status = status;
     }
 
     public static MatchDocument fromModel(Match match) {
@@ -33,11 +35,12 @@ public class MatchDocument {
                 match.getHomeTeam(),
                 match.getAwayTeam(),
                 match.getMatchDate(),
-                match.getScore()
+                match.getScore(),
+                match.getStatus()
         );
     }
 
     public Match toModel() {
-        return new Match(id, round, homeTeam, awayTeam, matchDate, score);
+        return new Match(id, round, homeTeam, awayTeam, matchDate, score, status);
     }
 }

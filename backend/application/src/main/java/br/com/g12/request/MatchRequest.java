@@ -8,11 +8,11 @@ public record MatchRequest(
         int round,
         String homeTeam,
         String awayTeam,
-        Date matchDate
-
+        Date matchDate,
+        String status
 ) {
     public Match toModel() {
-        return new Match(null, round, homeTeam, awayTeam, matchDate, null);
+        return new Match(null, round, homeTeam, awayTeam, matchDate, null, status);
     }
 }
 
