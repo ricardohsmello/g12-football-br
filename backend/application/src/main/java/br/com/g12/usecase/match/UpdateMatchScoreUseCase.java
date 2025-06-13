@@ -29,7 +29,6 @@ public class UpdateMatchScoreUseCase extends AbstractUseCase<ScoreRequest> {
             Match match = matchPort.find(matchId);
             Score model = score.toModel();
 
-
             scoreValidator.validate(model);
 
             match.setScore(model);

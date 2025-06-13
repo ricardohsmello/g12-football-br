@@ -1,6 +1,5 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Scoreboard } from '../../domain/model/score-board/scoreboard';
 import { ScoreboardEntry, ScoreBoardService } from '../../services/score-board-service/score-board.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
