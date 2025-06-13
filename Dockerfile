@@ -1,4 +1,3 @@
-# Use the official Keycloak image
 FROM quay.io/keycloak/keycloak:latest
 
 # Set environment variables for build
@@ -13,4 +12,5 @@ RUN /opt/keycloak/bin/kc.sh build
 EXPOSE 8080
 
 # Start Keycloak
-CMD ["/opt/keycloak/bin/kc.sh", "start", "--optimized"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
+CMD ["start", "--optimized"]
