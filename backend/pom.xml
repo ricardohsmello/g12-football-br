@@ -70,7 +70,7 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                     <parameters>true</parameters>
-                    <release>${java.version}</release>
+                    <release>17</release>
                 </configuration>
             </plugin>
         </plugins>
