@@ -1,10 +1,10 @@
 ### POST
-POST http://localhost:8080/bet
+POST https://g12-football-br.onrender.com/bet
 Content-Type: application/json
 
 {
-  "matchId": "6847406bc8ad24151108b067",
-  "userId": "Ricardo",
+  "matchId": "684c79b2f46197c82d1476e7",
+  "username": "Ricardo e thais",
   "prediction": {
     "homeTeam": 1,
     "awayTeam": 1
