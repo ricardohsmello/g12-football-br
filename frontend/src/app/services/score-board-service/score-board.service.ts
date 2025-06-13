@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 export interface ScoreboardEntry {
-  position: number;
   username: string;
   points: number;
 }
@@ -24,3 +23,5 @@ export class ScoreBoardService {
   }
 
 }
+
+

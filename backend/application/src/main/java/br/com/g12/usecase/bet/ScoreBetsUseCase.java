@@ -74,12 +74,29 @@ public class ScoreBetsUseCase {
                             null,
                             round,
                             entry.getKey(),
-                            entry.getValue(),
-                            position.getAndIncrement()
+                            entry.getValue()
                     ));
                 });
 
         scoreboardPort.saveAll(scoreboard);
+        updateUserTotalScoreboard(userScores);
+    }
 
+    private void updateUserTotalScoreboard(Map<String, Integer> roundUserScores) {
+        for (Map.Entry<String, Integer> entry : roundUserScores.entrySet()) {
+            String username = entry.getKey();
+            int pointsThisRound = entry.getValue();
+
+            Scoreboard currentTotal = scoreboardPort.findByRoundAndUsername(0, username);
+
+            if (currentTotal == null) {
+                Scoreboard newTotal = new Scoreboard(null, 0, username, pointsThisRound);
+                scoreboardPort.save(newTotal);
+            } else {
+                int newTotalPoints = currentTotal.points() + pointsThisRound;
+                Scoreboard updated = new Scoreboard(currentTotal.id(), 0, username, newTotalPoints);
+                scoreboardPort.save(updated);
+            }
+        }
     }
 }

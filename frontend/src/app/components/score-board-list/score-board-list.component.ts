@@ -10,24 +10,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./score-board-list.component.scss']
 })
 export class ScoreBoardListComponent implements OnInit {
-//  availableRounds = Array.from({ length: 38 }, (_, i) => i + 1);
-//   selectedRound = 12;
-//   scoreboard: ScoreboardEntry[] = [];
-
-//   constructor(private scoreboardService: ScoreBoardService) {}
-
-//   ngOnInit() {
-//     this.loadScoreboard();
-//   }
-
-//   loadScoreboard() {
-//     this.scoreboardService.getByRound(this.selectedRound).subscribe(data => {
-//       this.scoreboard = data;
-//     });
-//   }
 
 roundFormGroup!: FormGroup;
-  availableRounds = Array.from({ length: 38 }, (_, i) => i + 1);
+  selectedRound = 0;
+  availableRounds = Array.from({ length: 38 }, (_, i: 12) => i + 1);
   scoreboard: ScoreboardEntry[] = [];
 
   constructor(
@@ -37,13 +23,14 @@ roundFormGroup!: FormGroup;
 
   ngOnInit(): void {
     this.roundFormGroup = this.fb.group({
-      roundCtrl: [this.availableRounds[0]]
+      roundCtrl: [0]
     });
 
     this.loadScoreboard(this.roundFormGroup.value.roundCtrl);
   }
 
   onRoundChange(): void {
+    this.selectedRound = this.roundFormGroup.value.roundCtrl;
     const round = this.roundFormGroup.value.roundCtrl;
     this.loadScoreboard(round);
   }

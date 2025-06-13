@@ -14,6 +14,7 @@
             <mat-form-field appearance="outline" style="width: 200px;">
               <mat-label>Select Round</mat-label>
               <mat-select formControlName="roundCtrl" (selectionChange)="onRoundChange()">
+                 <mat-option [value]="0">Total Geral</mat-option>
                 <mat-option *ngFor="let round of availableRounds" [value]="round">
                   Round {{ round }}
                 </mat-option>
@@ -34,8 +35,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let entry of scoreboard">
-                  <td class="text-left">{{ entry.position }}</td>
+                <tr *ngFor="let entry of scoreboard; let i = index">
+                  <td class="text-left">{{ i + 1 }}</td>
                   <td class="text-left">{{ entry.username }}</td>
                   <td class="text-left">{{ entry.points }}</td>
                 </tr>

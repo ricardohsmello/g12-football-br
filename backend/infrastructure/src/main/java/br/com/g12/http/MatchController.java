@@ -4,6 +4,7 @@ import br.com.g12.request.MatchRequest;
 import br.com.g12.request.ScoreRequest;
 import br.com.g12.request.UserRoundRequest;
 import br.com.g12.response.MatchResponse;
+import br.com.g12.usecase.match.CloseExpiredMatchesUseCase;
 import br.com.g12.usecase.match.CreateMatchUseCase;
 import br.com.g12.usecase.match.FindMatchesWithUserBetsUseCase;
 import br.com.g12.usecase.match.UpdateMatchScoreUseCase;
@@ -20,14 +21,17 @@ public class MatchController {
     private final CreateMatchUseCase createMatchUseCase;
     private final UpdateMatchScoreUseCase updateMatchScoreUseCase;
     private final FindMatchesWithUserBetsUseCase findMatchesWithUserBetsUseCase;
+    private final CloseExpiredMatchesUseCase closeExpiredMatchesUseCase;
 
     MatchController(
             CreateMatchUseCase createMatchUseCase,
             UpdateMatchScoreUseCase updateMatchScoreUseCase,
-            FindMatchesWithUserBetsUseCase findMatchesWithUserBetsUseCase) {
+            FindMatchesWithUserBetsUseCase findMatchesWithUserBetsUseCase,
+            CloseExpiredMatchesUseCase closeExpiredMatchesUseCase) {
         this.createMatchUseCase = createMatchUseCase;
         this.updateMatchScoreUseCase = updateMatchScoreUseCase;
         this.findMatchesWithUserBetsUseCase = findMatchesWithUserBetsUseCase;
+        this.closeExpiredMatchesUseCase = closeExpiredMatchesUseCase;
     }
 
     @PostMapping
@@ -47,4 +51,9 @@ public class MatchController {
          List<MatchResponse> matches = findMatchesWithUserBetsUseCase.execute(new UserRoundRequest(username, round));
         return ResponseEntity.ok(matches);
     }
+
+    @GetMapping("/close")
+    public ResponseEntity<String> closeExpiredMatches() {
+        return ResponseEntity.ok("Closed expired matches: " + closeExpiredMatchesUseCase.execute());
+     }
 }

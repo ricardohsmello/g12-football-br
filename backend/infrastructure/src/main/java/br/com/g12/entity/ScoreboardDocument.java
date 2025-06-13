@@ -9,22 +9,20 @@ public class ScoreboardDocument {
     private int round;
     private String username;
     private int points;
-    private int position;
 
     ScoreboardDocument() {
 
     }
-    ScoreboardDocument(String id, int round, String username, int points, int position) {
+    ScoreboardDocument(String id, int round, String username, int points) {
         this.id = id;
         this.round = round;
         this.username = username;
         this.points = points;
-        this.position = position;
     }
 
 
     public Scoreboard toModel() {
-        return new Scoreboard( id, round, username, points, position );
+        return new Scoreboard( id, round, username, points );
     }
 
     public static ScoreboardDocument fromModel(Scoreboard scoreboard) {
@@ -32,8 +30,7 @@ public class ScoreboardDocument {
                 scoreboard.id(),
                 scoreboard.round(),
                 scoreboard.username(),
-                scoreboard.points(),
-                scoreboard.position()
+                scoreboard.points()
         );
     }
 }

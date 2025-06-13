@@ -23,4 +23,6 @@ Content-Type: application/json
 ### GET Find by username and round
 GET http://localhost:8080/match/ricas/round/5
 
+### Close all matches and return total
+GET http://localhost:8080/match/close
 

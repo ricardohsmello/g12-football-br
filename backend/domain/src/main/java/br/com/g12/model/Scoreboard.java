@@ -4,6 +4,5 @@ public record Scoreboard (
      String id,
      int round,
      String username,
-     int points,
-     int position){
+     int points){
 }
