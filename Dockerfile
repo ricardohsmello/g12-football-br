@@ -1,35 +1,15 @@
-# Etapa 1: builder com build otimizado
-FROM quay.io/keycloak/keycloak:24.0.3 as builder
-
-ENV KC_HEALTH_ENABLED=true
-ENV KC_METRICS_ENABLED=true
-
-# Banco de dados
-ENV KC_DB=postgres
-
-RUN keytool -genkeypair \
-    -storepass password \
-    -storetype PKCS12 \
-    -keyalg RSA \
-    -keysize 2048 \
-    -dname "CN=localhost" \
-    -alias server \
-    -ext "SAN:c=DNS:localhost,IP:127.0.0.1" \
-    -keystore /opt/keycloak/conf/server.keystore
-
-# Build otimizado
-RUN /opt/keycloak/bin/kc.sh build
-
-# Etapa 2: imagem final leve com Keycloak pronto
 FROM quay.io/keycloak/keycloak:24.0.3
 
-# Copia os arquivos buildados do builder
-COPY --from=builder /opt/keycloak /opt/keycloak
+# Copia todos os arquivos do Keycloak gerados pelo builder
+COPY --from=builder /opt/keycloak/lib/ /opt/keycloak/lib/
+COPY --from=builder /opt/keycloak/providers/ /opt/keycloak/providers/
+COPY --from=builder /opt/keycloak/conf/ /opt/keycloak/conf/
+COPY --from=builder /opt/keycloak/themes/ /opt/keycloak/themes/
+COPY --from=builder /opt/keycloak/lib/main/ /opt/keycloak/lib/main/
+COPY --from=builder /opt/keycloak/boot/ /opt/keycloak/boot/
+COPY --from=builder /opt/keycloak/bin/ /opt/keycloak/bin/
 
-# Copia o keystore criado no builder para o lugar certo
-COPY --from=builder /opt/keycloak/conf/server.keystore /opt/keycloak/conf/server.keystore
-
-# Configuração de ambiente
+# Admin e banco
 ENV KEYCLOAK_ADMIN=admin
 ENV KEYCLOAK_ADMIN_PASSWORD=admin123
 
@@ -39,7 +19,9 @@ ENV KC_DB_URL_DATABASE=RENDER_DB_NAME
 ENV KC_DB_USERNAME=RENDER_DB_USER
 ENV KC_DB_PASSWORD=RENDER_DB_PASSWORD
 
+# Keystore e HTTPS
 ENV KC_HTTPS_KEY_STORE_FILE=conf/server.keystore
 ENV KC_HTTPS_KEY_STORE_PASSWORD=password
 
+# Inicializa
 CMD ["start", "--optimized", "--hostname-strict=false", "--http-port=8080", "--http-host=0.0.0.0"]
