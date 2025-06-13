@@ -1,24 +1,35 @@
-FROM quay.io/keycloak/keycloak:latest AS builder
-
-# Enable health and metrics support
-ENV KC_HEALTH_ENABLED=true
-ENV KC_METRICS_ENABLED=true
-
-# Configure a database vendor
-ENV KC_DB=postgres
-
-WORKDIR /opt/keycloak
-# for demonstration purposes only, please make sure to use proper certificates in production instead
-RUN keytool -genkeypair -storepass password -storetype PKCS12 -keyalg RSA -keysize 2048 -dname "CN=server" -alias server -ext "SAN:c=DNS:localhost,IP:127.0.0.1" -keystore conf/server.keystore
-RUN /opt/keycloak/bin/kc.sh build
-
+# Use the official Keycloak image
 FROM quay.io/keycloak/keycloak:latest
-COPY --from=builder /opt/keycloak/ /opt/keycloak/
 
-# change these values to point to a running postgres instance
+USER root
+
+RUN cat > /opt/keycloak/start.sh << 'EOF'
+#!/bin/bash
+
+
+# Make the startup script executable
+RUN chmod +x /opt/keycloak/start.sh
+
+# Switch back to keycloak user for security
+USER keycloak
+
+# Set the working directory
+WORKDIR /opt/keycloak
+
+# Expose the port that Keycloak will run on
+EXPOSE 8080
+
+# Health check to ensure Keycloak is running properly
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:8080/health/ready || exit 1
+
+# Use the startup script as the entry point
+ENTRYPOINT ["/opt/keycloak/start.sh"]
+
 ENV KC_DB=postgres
 ENV KC_DB_URL=<DBURL>
 ENV KC_DB_USERNAME=<DBUSERNAME>
 ENV KC_DB_PASSWORD=<DBPASSWORD>
 ENV KC_HOSTNAME=localhost
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
+ 
+
