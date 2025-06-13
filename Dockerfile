@@ -1,35 +1,43 @@
-# Use the official Keycloak image
-FROM quay.io/keycloak/keycloak:latest
+# Etapa 1: builder com build otimizado
+FROM quay.io/keycloak/keycloak:24.0.3 as builder
 
-USER root
+ENV KC_HEALTH_ENABLED=true
+ENV KC_METRICS_ENABLED=true
 
-RUN cat > /opt/keycloak/start.sh << 'EOF'
-#!/bin/bash
+# Banco de dados
+ENV KC_DB=postgres
 
+RUN keytool -genkeypair \
+    -storepass password \
+    -storetype PKCS12 \
+    -keyalg RSA \
+    -keysize 2048 \
+    -dname "CN=localhost" \
+    -alias server \
+    -ext "SAN:c=DNS:localhost,IP:127.0.0.1" \
+    -keystore /opt/keycloak/conf/server.keystore
 
-# Make the startup script executable
-RUN chmod +x /opt/keycloak/start.sh
+# Build otimizado
+RUN /opt/keycloak/bin/kc.sh build
 
-# Switch back to keycloak user for security
-USER keycloak
+# Etapa 2: imagem final leve com Keycloak pronto
+FROM quay.io/keycloak/keycloak:24.0.3
 
-# Set the working directory
-WORKDIR /opt/keycloak
+COPY --from=builder /opt/keycloak /opt/keycloak
 
-# Expose the port that Keycloak will run on
-EXPOSE 8080
-
-# Health check to ensure Keycloak is running properly
-HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD curl -f http://localhost:8080/health/ready || exit 1
-
-# Use the startup script as the entry point
-ENTRYPOINT ["/opt/keycloak/start.sh"]
+# Variáveis obrigatórias
+ENV KEYCLOAK_ADMIN=admin
+ENV KEYCLOAK_ADMIN_PASSWORD=admin123
 
 ENV KC_DB=postgres
-ENV KC_DB_URL=<DBURL>
-ENV KC_DB_USERNAME=<DBUSERNAME>
-ENV KC_DB_PASSWORD=<DBPASSWORD>
-ENV KC_HOSTNAME=localhost
- 
+ENV KC_DB_URL_HOST=RENDER_DB_HOST
+ENV KC_DB_URL_DATABASE=RENDER_DB_NAME
+ENV KC_DB_USERNAME=RENDER_DB_USER
+ENV KC_DB_PASSWORD=RENDER_DB_PASSWORD
 
+# HTTPS config mínima
+ENV KC_HTTPS_KEY_STORE_FILE=conf/server.keystore
+ENV KC_HTTPS_KEY_STORE_PASSWORD=password
+
+# Inicializa o servidor no modo otimizado
+CMD ["start", "--optimized", "--hostname-strict=false", "--http-port=8080", "--http-host=0.0.0.0"]
