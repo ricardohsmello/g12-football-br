@@ -1,17 +1,16 @@
-# Base image with Maven + Java 17
 FROM maven:3.9.6-eclipse-temurin-21
 
-# Define working directory
-WORKDIR /app
+# Cria pasta e entra no backend (onde está o pom.xml)
+WORKDIR /app/backend
 
-# Copy everything into the container
-COPY . .
+# Copia somente a pasta backend (Render clona o repo na raiz)
+COPY backend /app/backend
 
-# Build the entire multi-module project
+# Compila o projeto
 RUN mvn clean package -DskipTests
 
-# Set environment variable
+# Define variável de ambiente (Render vai sobrescrever)
 ENV MONGODB_URI=""
 
-# Run the JAR from the infrastructure module
+# Roda o JAR
 CMD ["java", "-jar", "infrastructure/target/g12-infrastructure-0.0.1-SNAPSHOT.jar"]
