@@ -1,6 +1,7 @@
  import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../../environments/environment';
 
 export interface ScoreboardEntry {
   username: string;
@@ -15,7 +16,7 @@ export class ScoreBoardService {
   private scoreBoardURL: string;
 
   constructor(private http: HttpClient) {
-    this.scoreBoardURL =  'https://g12-football-br.onrender.com/scoreboard';
+    this.scoreBoardURL = `${environment.apiUrl}/scoreboard`;
   }
  
   getByRound(round: number): Observable<ScoreboardEntry[]> {

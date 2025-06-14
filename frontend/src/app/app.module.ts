@@ -14,12 +14,13 @@ import {MaterialExampleModule} from '../material.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import { environment } from '../environments/environment';
 
 export function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
   keycloak.init({
     config: {
-    url: 'https://g12-football-br-1.onrender.com',
+    url: `${environment.keycloak.url}`,
     realm: 'g12',
     clientId: 'frontend'
     },

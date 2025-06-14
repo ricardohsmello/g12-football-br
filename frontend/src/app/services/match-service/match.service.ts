@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Match } from '../../domain/model/match/match';
 import { MatchResponse } from '../../domain/model/match/match-response';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ import { MatchResponse } from '../../domain/model/match/match-response';
   private matchURL: string;
 
   constructor(private http: HttpClient) {
-    this.matchURL = 'https://g12-football-br.onrender.com/match';
+   
+    this.matchURL = `${environment.apiUrl}/match`;
   }
 
   public findByUsernameRound(username: string, round: number): Observable<MatchResponse[]> {
@@ -32,6 +34,6 @@ import { MatchResponse } from '../../domain/model/match/match-response';
   }
 
   public scoreRound(round: number) {
-    return this.http.put<void>(`https://g12-football-br.onrender.com/rounds/${round}/score`, {});
+    return this.http.put<void>(`${environment.apiUrl}/${round}/score`, {});
   }
 }

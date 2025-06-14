@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 import { Bet } from '../../domain/model/bet/bet' 
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ import { Bet } from '../../domain/model/bet/bet'
   private betURL: string;
 
   constructor(private http: HttpClient) {
-    this.betURL = 'https://g12-football-br.onrender.com/bet';
+    this.betURL = `${environment.apiUrl}`;
   }
 
   public save(bet: Bet) {
