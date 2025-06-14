@@ -6,7 +6,7 @@ WORKDIR /app
 COPY . .
 
 RUN npm install
-RUN npm run build -- --configuration production --project=g12-football-bet
+# RUN npm run build -- --configuration production --project=g12-football-bet
 
 # Etapa 2: Nginx para servir os arquivos estáticos
 FROM nginx:alpine
