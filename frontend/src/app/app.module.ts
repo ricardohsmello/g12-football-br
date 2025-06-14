@@ -19,12 +19,14 @@ export function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
   keycloak.init({
     config: {
-    url: 'http://localhost:8180',
+    url: 'https://g12-football-br-1.onrender.com',
     realm: 'g12',
     clientId: 'frontend'
     },
   initOptions: {
   onLoad: 'login-required',
+  // onLoad: 'check-sso',
+  //  checkLoginIframe: false,
   silentCheckSsoRedirectUri:
     window.location.origin + '/assets/silent-check-sso.html'
   }

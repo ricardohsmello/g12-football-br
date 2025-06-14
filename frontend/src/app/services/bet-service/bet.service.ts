@@ -10,7 +10,7 @@ import { Bet } from '../../domain/model/bet/bet'
   private betURL: string;
 
   constructor(private http: HttpClient) {
-    this.betURL = 'http://localhost:8080/bet';
+    this.betURL = 'https://g12-football-br.onrender.com/bet';
   }
 
   public save(bet: Bet) {

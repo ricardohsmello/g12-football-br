@@ -11,7 +11,7 @@ import { MatchResponse } from '../../domain/model/match/match-response';
   private matchURL: string;
 
   constructor(private http: HttpClient) {
-    this.matchURL = 'http://localhost:8080/match';
+    this.matchURL = 'https://g12-football-br.onrender.com/match';
   }
 
   public findByUsernameRound(username: string, round: number): Observable<MatchResponse[]> {
@@ -32,6 +32,6 @@ import { MatchResponse } from '../../domain/model/match/match-response';
   }
 
   public scoreRound(round: number) {
-    return this.http.put<void>(`http://localhost:8080/rounds/${round}/score`, {});
+    return this.http.put<void>(`https://g12-football-br.onrender.com/rounds/${round}/score`, {});
   }
 }

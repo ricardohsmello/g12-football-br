@@ -15,7 +15,7 @@ export class ScoreBoardService {
   private scoreBoardURL: string;
 
   constructor(private http: HttpClient) {
-    this.scoreBoardURL =  'http://localhost:8080/scoreboard';
+    this.scoreBoardURL =  'https://g12-football-br.onrender.com/scoreboard';
   }
  
   getByRound(round: number): Observable<ScoreboardEntry[]> {
