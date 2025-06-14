@@ -6,7 +6,7 @@ WORKDIR /app
 COPY . .
 
 RUN npm install
-RUN npm run build --prod
+RUN npm run build --configuration production
 
 # Etapa 2: Nginx para servir os arquivos estáticos
 FROM nginx:alpine
