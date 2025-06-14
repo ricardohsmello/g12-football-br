@@ -25,4 +25,4 @@ EXPOSE 8080
 
 # Start Keycloak
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
-CMD ["start", "--optimized", "--http-host=0.0.0.0"]
+CMD ["start", "--optimized", "--http-host=0.0.0.0", "--spi-cookie-secure=never"]
