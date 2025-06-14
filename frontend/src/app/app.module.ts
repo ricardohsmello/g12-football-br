@@ -28,12 +28,12 @@ export function initializeKeycloak(keycloak: KeycloakService) {
         clientId: 'frontend'
       },
       initOptions: {
-        onLoad: 'login-required',
-        // onLoad: 'check-sso',
+        // onLoad: 'login-required',
+        onLoad: 'check-sso',
         checkLoginIframe: false,
-        pkceMethod: 'S256',
-        silentCheckSsoRedirectUri:
-          window.location.origin + '/assets/silent-check-sso.html'
+        // pkceMethod: 'S256',
+        // silentCheckSsoRedirectUri:
+        //   window.location.origin + '/assets/silent-check-sso.html'
       }
     });
 }
