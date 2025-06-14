@@ -6,6 +6,7 @@ ENV KC_HTTP_ENABLED=true
 ENV KC_HOSTNAME_STRICT=false
 ENV KC_HOSTNAME_STRICT_HTTPS=false
 ENV KC_PROXY=edge
+ENV KC_SPI_COOKIE_SAMESITE=None
 
 ENV KC_DB=postgres
 ENV KC_DB_PASSWORD=
@@ -25,4 +26,4 @@ EXPOSE 8080
 
 # Start Keycloak
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
-CMD ["start", "--optimized", "--http-host=0.0.0.0", "--spi-cookie-secure=never"]
+CMD ["start", "--optimized", "--http-host=0.0.0.0", "--hostname-strict=false"]
