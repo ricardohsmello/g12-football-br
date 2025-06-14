@@ -17,6 +17,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { environment } from '../environments/environment';
 
 export function initializeKeycloak(keycloak: KeycloakService) {
+  console.log('Keycloak URL:', environment.keycloak.url);  
+
   return () =>
   keycloak.init({
     config: {
@@ -27,8 +29,9 @@ export function initializeKeycloak(keycloak: KeycloakService) {
   initOptions: {
   onLoad: 'login-required',
   // onLoad: 'check-sso',
-  //  checkLoginIframe: false,
-  silentCheckSsoRedirectUri:
+     checkLoginIframe: false,
+    pkceMethod: 'S256', 
+    silentCheckSsoRedirectUri:
     window.location.origin + '/assets/silent-check-sso.html'
   }
   });
